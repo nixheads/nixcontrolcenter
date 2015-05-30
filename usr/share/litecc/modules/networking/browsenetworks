@@ -1,0 +1,5 @@
+[module]
+name = Browse Networks
+ico = network.png
+desc = Browse and connect to local networks
+command = /usr/share/litecc/scripts/browsenetworks

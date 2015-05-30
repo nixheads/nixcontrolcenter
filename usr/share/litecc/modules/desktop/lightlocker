@@ -1,0 +1,5 @@
+[module]
+name = Light Locker
+ico = screensaver.png
+desc = Configure locking your session
+command = /usr/bin/light-locker-settings

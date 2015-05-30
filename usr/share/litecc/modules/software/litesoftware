@@ -1,0 +1,5 @@
+[module]
+name = Lite Software
+ico = litesoftware.png
+desc = Install popular software
+command = gksudo /usr/bin/lite-software

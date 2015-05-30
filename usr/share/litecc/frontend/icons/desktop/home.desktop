@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Home
+Comment=
+Exec=/bin/sh -c "exo-open --launch FileManager $HOME"
+Icon=user-home
+Terminal=false
+StartupNotify=false
+GenericName=

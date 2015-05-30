@@ -1,0 +1,5 @@
+[module]
+name = Date & Time
+ico = datetime.png
+desc = Change system date and time
+command = gksu /usr/bin/system-config-date

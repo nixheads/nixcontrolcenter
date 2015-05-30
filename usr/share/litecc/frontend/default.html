@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" DIR="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link media="all" rel="stylesheet" type="text/css" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.main.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="content">
+                <div class="c1">
+                    <div class="tabs">
+                        <!--
+                            Brian: The id='tab-{num}' is what determines content order, I just matched the tab IDs to the
+                            ones at the bottom of this file.  For the rest, edit your markup similarly.
+                        -->
+		       <div id="tab-1" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/sys_info.png"/>
+
+                                    <h1>System Information</h1>
+
+                                    <p>A brief overview of your system</p>
+                                </div>
+                            </article>
+                            <div id="contents">
+                                <h1>Computer</h1>
+
+                                <p>Operating System: <span id="ty">{os}</span></p>
+
+                                <p>Processor: <span id="ty">{processor}</span></p>
+
+                                <p>Architecture: <span id="ty">{arc}</span></p>
+
+                                <p>Installed Memory: <span id="ty">{mem}</span></p>
+
+                                <p>Hostname: <span id="ty">{host}</span></p>
+
+                                <p>Kernel: <span id="ty">{kernel}</span></p>
+
+                                <h1>Devices: </h1>
+
+                                <p>Graphics Card: <span id="ty">{gfx}</span></p>
+
+                                <p>Sound Card: <span id="ty">{audio}</span></p>
+
+                                <h1>Internet: </h1>
+
+                                <p>Status: <span id="ty">{netstatus}</span></p>
+
+                                <p>Local IP Address: <span id="ty">{netip}</span></p>
+                                <br>
+
+                                <div class="link" onclick="location.href=('help://')"><img src="images/help.png">
+
+                                    <p>Help</p></div>
+                                <div class="link" onclick="location.href=('forum://')"><img src="images/forum.svg">
+
+                                    <p>Forum</p></div>
+                                <div class="link" onclick="location.href=('website://')"><img src="images/website.png">
+
+                                    <p>Website</p></div>
+                                <div class="link" onclick="location.href=('facebook://')"><img src="images/facebook.png">
+
+                                    <p>Facebook</p></div>
+                                <div class="link" onclick="location.href=('twitter://')"><img src="images/twitter.png">
+
+                                    <p>Twitter</p></div>
+                                <div class="link" onclick="location.href=('google://')"><img src="images/googleplus.png">
+
+                                    <p>Google+</p></div>
+                                <div class="link" onclick="location.href=('linkedin://')"><img src="images/linkedin.png">
+
+                                    <p>LinkedIn</p></div>
+                            </div>
+                        </div>
+
+                        <div id="tab-2" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/desktop.png"/>
+
+                                    <h1>Desktop</h1>
+
+                                    <p>Manage your desktop environment</p>
+                                    <img class="help" onclick="location.href=('help://')" src="images/help.png">
+                                </div>
+                            </article>
+                            <div id="contents">
+                                {desktop_list}
+
+                                <div id="box">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-3" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/hardware.png"/>
+
+                                    <h1>Hardware</h1>
+
+                                    <p>Hardware management and configuration for your computer</p>
+                                    <img class="help" onclick="location.href=('help://')" src="images/help.png">
+                                </div>
+                            </article>
+                            <div id="contents">
+                                {hardware_list}
+
+                                <div id="box">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-4" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/samba.png"/>
+
+                                    <h1>Network</h1>
+
+                                    <p>Manage and configure your home network and connections</p>
+                                </div>
+                            </article>
+                            <div id="contents">
+                                {networking_list}
+                            </div>
+                        </div>
+
+                        <div id="tab-5" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/packages.png"/>
+
+                                    <h1>Software</h1>
+
+                                    <p>Installing and maintaining software on your system</p>
+                                    <img class="help" onclick="location.href=('help://')" src="images/help.png">
+                                </div>
+                            </article>
+                            <div id="contents">
+                                {software_list}
+                                <br>
+
+                                <div id="box">
+                                    <div id="box_content">
+                                        <p>
+                                        <h2>Guide</h2>
+                                        <br><br><b>Edit Software Sources</b> - Change Country location and add PPAs.</p>
+                                        <b>Install Updates</b> - Get the latest Updates for your Computer.</p>
+                                        <b>Install/Remove Software</b> - Choose from 1000's of applications to install for free.</p>
+                                        <b>Lite Software</b> - Install popular software such as Skype and Chrome.</p>
+                                        <b>Preferred Applications</b> - Select a program as your default eg. Web Browser - Firefox.</p>
+                                        <br>
+
+                                        <div align="center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-6" class="tab">
+                            <article>
+                                <div class="text-section">
+                                    <img id="solgan" src="icons/system.png"/>
+
+                                    <h1>System</h1>
+
+                                    <p>Configure and customize your computer</p>
+                                    <img class="help" onclick="location.href=('help://')" src="images/help.png">
+                                </div>
+                            </article>
+                            <div id="contents">
+                                {system_list}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside id="sidebar">
+                <strong class="logo"><a onclick="location.href='about://hi'" href="#"></a></strong>
+                <ul class="tabset buttons">
+                    <!-- Brian: This is what determins the sidebar order item order. Meaningful variables would have helped.-->
+                    <li class="active">
+                        <a href="#tab-1" class="ico1"><span>System Information</span><em></em></a>
+                    </li>
+                    <li>
+                        <a href="#tab-2" class="ico3"><span>Desktop</span><em></em></a>
+                    </li>
+                    <li>
+                        <a href="#tab-5" class="ico2"><span>Software</span><em></em></a>
+                    </li>
+                    <li>
+                        <a href="#tab-3" class="ico5"><span>Hardware</span><em></em></a>
+                    </li>
+                    <li>
+                        <a href="#tab-4" class="ico6"><span>Network</span><em></em></a>
+                    </li>
+                    <li>
+                        <a href="#tab-6" class="ico4"><span>System</span><em></em></a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+
+        <script type="text/javascript">
+            function changeTitle (title) {
+                document.title = title;
+                document.title = 'none';
+            }
+            function themeInst () {
+                location.href = 'themeinstall://' + document.getElementById("file").value
+            }
+
+
+            //Sort each tab's div.contents
+            (function() {
+                var sorter = function(a, b) {
+                    var aindex = $(a).data('menusort') || null,
+                        bindex = $(b).data('menusort') || null;
+
+                    if (aindex !== bindex && (Number.isFinite(aindex) || Number.isFinite(bindex))) {
+                        return (aindex || bindex + 1) - (bindex || aindex + 1);
+                    }
+
+                    var atext = $(a).children('h3').text().trim(),
+                        btext = $(b).children('h3').text().trim();
+                    var s = [atext, btext];
+                    s.sort();
+                    if (s[0] == atext)
+                        return -1;
+                    else
+                        return 1;
+                };
+                $('.tab div[id="contents"]').each(function(i, tab) {
+                    var tabContentItems = $(tab).children('div.launcher');
+                    tabContentItems.sort(sorter);
+                    tabContentItems.detach().appendTo($(tab));
+                });
+            })()
+        </script>
+    </body>
+</html>

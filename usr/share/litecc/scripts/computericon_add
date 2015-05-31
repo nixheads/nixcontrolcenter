@@ -1,0 +1,6 @@
+#!/bin/bash
+# Show Computer icon on the Desktop
+# By Misko_2083
+
+# Computer
+xfconf-query --channel xfce4-desktop --property "/desktop-icons/file-icons/show-filesystem" --set "true"

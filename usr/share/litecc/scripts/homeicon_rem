@@ -1,0 +1,6 @@
+#!/bin/bash
+# Show Home icon on the Desktop
+# By Misko_2083
+
+# Home
+xfconf-query --channel xfce4-desktop --property "/desktop-icons/file-icons/show-home" --set "false"

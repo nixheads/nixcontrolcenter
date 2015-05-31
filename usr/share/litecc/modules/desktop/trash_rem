@@ -1,0 +1,5 @@
+[module]
+name = Remove Trash Icon
+ico = trash_rem.png
+desc = Remove Trash icon from the Desktop
+command = /usr/share/litecc/scripts/trashicon_rem

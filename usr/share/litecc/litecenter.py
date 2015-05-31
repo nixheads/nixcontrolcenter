@@ -131,15 +131,19 @@ def get_info(info):
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
-            return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+            audio = execute("lspci | grep 'Audio device:'")
+            if len(audio) == 0:
+               return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split('[')[0]
+            else:
+               return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "netstatus":
             return execute(
                 "ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo Active || echo Not connected to any known network")
         if info == "netip":
-            ip = execute("hostname -I").split()
+            ip = execute("hostname -I").split(' ')
             if len(ip) > 1:
                 ip = ip[0]
-            return str(ip).strip('[]')[1:-1]
+            return ip
     except (OSError, TypeError, Exception) as e:
         print(e)
         return " "
@@ -233,7 +237,7 @@ def main():
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
-    window.set_size_request(870, 570)
+    window.set_size_request(870, 650)
     # Valtam do we need to resize window?
     window.set_resizable(False)
     window.set_position(gtk.WindowPosition.CENTER),

@@ -2,4 +2,4 @@
 name = Add Home Icon
 ico = home_add.png
 desc = Add Home icon to the Desktop
-command = cp /usr/share/litecc/frontend/icons/desktop/home.desktop ~/Desktop
+command = /usr/share/litecc/scripts/homeicon_add

@@ -121,7 +121,12 @@ def get_info(info):
         if info == "kernel":
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "processor":
-            return execute("cat /proc/cpuinfo | grep 'model name'").split(':')[1]
+           processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
+           cores =  execute("grep 'cpu cores' /proc/cpuinfo").split(':')[1].strip(' ')
+           if int(cores) == 1:
+              return processor
+           else:
+               return "{0} x{1}".format(processor, cores)
         if info == "mem":
             mem = execute("free -m|awk '/^Mem:/{print $2}'")
             if float(mem) > 1024:
@@ -133,7 +138,7 @@ def get_info(info):
         if info == "audio":
             audio = execute("lspci | grep 'Audio device:'")
             if len(audio) == 0:
-               return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split('[')[0]
+               return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
             else:
                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "netstatus":

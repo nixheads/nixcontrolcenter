@@ -1,2 +1,2 @@
 #!/bin/bash
-python /usr/share/litecc/litecenter.py
+python3 /usr/share/litecc/litecenter.py

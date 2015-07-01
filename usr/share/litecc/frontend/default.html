@@ -26,31 +26,57 @@
                                 </div>
                             </article>
                             <div id="contents">
-                                <h1>Computer</h1>
+                                <h1 style="padding-bottom:0px">Computer</h1>
+                                   <table style="width:100%">
+                                   <tr>
+                                          <td width=20%>Operating System: </td>
+                                          <td><span id="ty">{os}</span></td>
+                                   </tr>
+                                   <tr>
+                                           <td width=20%>Processor:  </td>
+                                           <td><span id="ty">{processor}</span></td>
+                                   </tr>
+                                   <tr>
+                                           <td width=20%>Architecture: </td>
+                                           <td><span id="ty">{arc}</span></td>
+                                   </tr>
+                                   <tr>
+                                           <td width=20%>Installed Memory: </td>
+                                           <td><span id="ty">{mem}</span></td>
+                                   </tr>
+                                           <td width=20%>Hostname: </td>
+                                           <td><span id="ty">{host}</span></td>
+                                   </tr>
+                                           <td width=20%>Kernel: </td>
+                                           <td><span id="ty">{kernel}</span></td>
+                                   </tr>
+                                  </table> 
+                                 <br>
 
-                                <p>Operating System: <span id="ty">{os}</span></p>
+                                <h1>Devices</h1>
+                                   <table style="width:100%">
+                                   <tr>
+                                          <td width=20%>Graphics Card: </td>
+                                          <td><span id="ty">{gfx}</span></td>
+                                   </tr>
+                                   <tr>
+                                           <td width=20%>Sound Card: </td>
+                                           <td><span id="ty">{audio}</span></td>
+                                   </tr>
+                                   </table>
+                                 <br>
 
-                                <p>Processor: <span id="ty">{processor}</span></p>
-
-                                <p>Architecture: <span id="ty">{arc}</span></p>
-
-                                <p>Installed Memory: <span id="ty">{mem}</span></p>
-
-                                <p>Hostname: <span id="ty">{host}</span></p>
-
-                                <p>Kernel: <span id="ty">{kernel}</span></p>
-
-                                <h1>Devices: </h1>
-
-                                <p>Graphics Card: <span id="ty">{gfx}</span></p>
-
-                                <p>Sound Card: <span id="ty">{audio}</span></p>
-
-                                <h1>Internet: </h1>
-
-                                <p>Status: <span id="ty">{netstatus}</span></p>
-
-                                <p>Local IP Address: <span id="ty">{netip}</span></p>
+                                <h1>Internet</h1>
+                                   <table style="width:100%">
+                                   <tr>
+                                          <td width=20%>Status: </td>
+                                          <td> <span id="ty">{netstatus}</span></td>
+                                   </tr>
+                                   <tr>
+                                           <td width=20%>Local IP Address: </td>
+                                           <td><span id="ty">{netip}</span></td>
+                                   </tr>
+                                   </table>
                                 <br>
 
                                 <div class="link" onclick="location.href=('help://')"><img src="images/help.png">

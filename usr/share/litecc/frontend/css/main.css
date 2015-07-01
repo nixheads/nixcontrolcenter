@@ -470,3 +470,7 @@ margin-top: -3px;
 	color: #eee;
 	background: rgb(130, 195, 245);
 	}
+	
+th, td {
+    padding: 3px;
+}

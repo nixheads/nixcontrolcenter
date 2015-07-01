@@ -474,3 +474,9 @@ margin-top: -3px;
 th, td {
     padding: 3px;
 }
+#bars {
+    display: none;
+}
+.cart:hover #bars {
+    display: table;
+}

@@ -149,7 +149,7 @@ top: 0;
 .launcher:hover {
 
     border-color: rgba(23, 51, 78, 0.15) rgba(23, 51, 78, 0.17) rgba(23, 51, 78, 0.2);
-    background-color: rgba(3, 14, 27, 0.03);
+    background-color: #BCE0FF;
 }
 .launcher:active {
    background-image: linear-gradient(rgba(3, 14, 27, 0.02), rgba(3, 14, 27, 0.05));

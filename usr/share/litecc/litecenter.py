@@ -105,6 +105,8 @@ MA 02110-1301, USA. ''')
         execute("exo-open https://plus.google.com/+linuxliteos/")
     elif lllink == "linkedin":
         execute("exo-open http://www.linkedin.com/in/jerrybezencon")
+    elif lllink == "screenshot":
+        execute("/bin/bash -c /usr/share/litecc/scripts/screenshot")
 
     return True
 
@@ -122,7 +124,7 @@ def get_info(info):
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "processor":
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
-           cores =  execute("grep 'cpu cores' /proc/cpuinfo").split(':')[1].strip(' ')
+           cores =  execute("egrep 'core id|physical id' /proc/cpuinfo | tr -d '\n' | sed s/physical/\\nphysical/g | grep -v ^$ | sort | uniq | wc -l")
            if int(cores) == 1:
               return processor
            else:

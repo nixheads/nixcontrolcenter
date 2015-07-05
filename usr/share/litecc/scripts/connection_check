@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Test for network conection
+ping -q -w 1 -c 1  $(ip r | grep default | cut -d ' ' -f 3)  &>/dev/null
+if [ $? != 0 ]; then
+   echo "<font color=red>Not connected</font>" 
+else
+   echo "<font color=green>Active</font>"
+fi

@@ -124,7 +124,7 @@ def get_info(info):
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "processor":
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
-           cores =  execute("egrep 'core id|physical id' /proc/cpuinfo | tr -d '\n' | sed s/physical/\\nphysical/g | grep -v ^$ | sort | uniq | wc -l")
+           cores =  execute("grep -c 'processor' /proc/cpuinfo")
            if int(cores) == 1:
               return processor
            else:
@@ -144,8 +144,7 @@ def get_info(info):
             else:
                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "netstatus":
-            return execute(
-                "ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo Active || echo Not connected to any known network")
+            return execute("/usr/share/litecc/scripts/connection_check")
         if info == "netip":
             ip = execute("hostname -I").split(' ')
             if len(ip) > 1:

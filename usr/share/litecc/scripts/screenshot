@@ -8,10 +8,11 @@ if [ "$?" != "0" ]; then
 fi 
  /bin/sh -c "exo-open '$url' "
 }
-if zenity --question --text="This will send  a screenshot to imgur.com online image hosting service. Proceed?"; then
+if zenity --question --text="This will send  a screenshot to imgur.com online image hosting service.\nMake sure the Lite Control Center window is in focus.\n\nProceed?"; then
         sleep 0.5
 	scrot -u "$HOME/shot.png" 
-	uploadImage "$HOME/shot.png"
+	uploadImage "$HOME/shot.png" | zenity --progress --pulsate --auto-close --auto-kill --title "Uploading Image" --text "Sending image to imgur.com\n\nPlease wait..." 
 	rm "$HOME/shot.png"
-	notify-send "Done"
+else
+		zenity --error --title="Upload Cancelled" --text="Upload Cancelled."
 fi

@@ -1,5 +1,0 @@
-[module]
-name = Lite Upgrade
-ico = updates.png
-desc = Upgrade Linux Lite from within a series
-command = lite-upgrade-series2

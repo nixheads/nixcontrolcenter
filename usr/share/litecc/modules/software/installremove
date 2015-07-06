@@ -1,5 +1,5 @@
 [module]
 name = Install/Remove Software
-ico = installremove.png
+ico = updatesinstallremove.png
 desc = Install & Remove software
 command = gksudo synaptic

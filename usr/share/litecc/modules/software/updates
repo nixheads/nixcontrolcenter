@@ -1,5 +1,5 @@
 [module]
 name = Install Updates
-ico = updates.png
+ico = updatesinstallremove.png
 desc = Update your computer
 command = gksudo /usr/scripts/updates-gui

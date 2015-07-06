@@ -124,7 +124,11 @@ def get_info(info):
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "processor":
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
-           return processor
+           cores =  execute("grep -c 'processor' /proc/cpuinfo")
+           if int(cores) == 1:
+              return processor
+           else:
+               return "{0} x{1}".format(processor, cores)
         if info == "mem":
             mem = execute("free -m|awk '/^Mem:/{print $2}'")
             if float(mem) > 1024:

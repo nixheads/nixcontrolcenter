@@ -2,7 +2,7 @@
 Categories=Application;Settings
 Encoding=UTF-8
 Exec=lite-controlcenter
-Icon=lite-center
+Icon=lite-controlcenter
 StartupNotify=true
 Terminal=false
 Type=Application

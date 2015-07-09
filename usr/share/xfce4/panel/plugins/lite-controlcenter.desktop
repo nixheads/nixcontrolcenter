@@ -10,9 +10,9 @@ Name[pl]=Lite Control Center
 Name[sk]=Lite Control Center
 Comment=Control and manage Linux Lite
 Comment[en_GB]=Control and manage Linux Lite
-Icon=lite-center
+Icon=lite-controlcenter
 X-XFCE-Module=litecontrolcenter
 X-XFCE-Internal=false
 
 [Desktop Entry]
-Name=litecontrolcenter.desktop
+Name=lite-controlcenter.desktop

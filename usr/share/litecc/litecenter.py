@@ -49,7 +49,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name("Linux Lite Control Center")
-        about.set_version("1.0-0020")
+        about.set_version("1.0-0040")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -107,6 +107,8 @@ MA 02110-1301, USA. ''')
         execute("exo-open http://www.linkedin.com/in/jerrybezencon")
     elif lllink == "screenshot":
         execute("/bin/bash -c /usr/share/litecc/scripts/screenshot")
+    elif lllink == "report":
+        execute("gksudo /usr/scripts/systemreport")
 
     return True
 
@@ -146,6 +148,8 @@ def get_info(info):
             if len(ip) > 1:
                 ip = ip[0]
             return ip
+        if info == "gateway":
+            return execute("/usr/share/litecc/scripts/gateway")
     except (OSError, TypeError, Exception) as e:
         print(e)
         return " "
@@ -217,7 +221,7 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip']:
+    for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip', 'gateway']:
          page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']

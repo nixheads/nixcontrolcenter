@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Display Gateway
+
+gw=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
+echo $gw

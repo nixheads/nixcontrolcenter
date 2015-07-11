@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Test for network conection
-ping -q -w 1 -c 1  $(ip r | grep default | cut -d ' ' -f 3)  &>/dev/null
-if [ $? != 0 ]; then
-   echo "<font color=red>Not connected</font>" 
-else
+ping -c 1 8.8.8.8 2>&1 | grep "connect: Network is unreachable" &>/dev/null
+if [ $? = 1 ]; then
    echo "<font color=green>Active</font>"
+else
+   echo "<font color=red>Not connected</font>" 
 fi

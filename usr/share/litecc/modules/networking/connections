@@ -1,5 +1,5 @@
 [module]
-name = Wired and Wireless
+name = Network Connections
 ico = network.png
-desc = Manage wired and wireless connections
+desc = Manage network connections
 command = nm-connection-editor

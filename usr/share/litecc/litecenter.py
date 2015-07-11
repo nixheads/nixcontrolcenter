@@ -76,7 +76,7 @@ MA 02110-1301, USA. ''')
         about.run()
         about.destroy()
     elif lllink == "admin":
-        execute(path)
+          subprocess.Popen(path, shell=True)
     elif lllink == "exportdetails":
         dialog = gtk.FileChooserDialog("Select folder to export details to.", None,
                                        gtk.FILE_CHOOSER_ACTION_SAVE,

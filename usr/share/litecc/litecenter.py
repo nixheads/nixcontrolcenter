@@ -129,8 +129,14 @@ def get_info(info):
            return processor
         if info == "mem":
             mem = execute("free -m|awk '/^Mem:/{print $2}'")
-            if float(mem) > 1024:
-                return str(round(float(mem) / 1024)) + " GB"
+            if float(mem) >= 1024:
+                mem =  (float(mem) / 1024)
+                if mem%1 == 0:
+                      mem = ("{0}".format(round(mem)))
+                      return str(mem + " GB")
+                else:
+                      mem = ("{0:.1f}".format(mem))
+                      return str(mem + " GB")
             else:
                 return "{0} MB".format(mem)
         if info == "gfx":

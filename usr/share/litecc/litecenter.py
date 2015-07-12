@@ -49,7 +49,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name("Linux Lite Control Center")
-        about.set_version("1.0-0050")
+        about.set_version("1.0-0060")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -128,17 +128,7 @@ def get_info(info):
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
            return processor
         if info == "mem":
-            mem = execute("free -m|awk '/^Mem:/{print $2}'")
-            if float(mem) >= 1024:
-                mem =  (float(mem) / 1024)
-                if mem%1 == 0:
-                      mem = ("{0}".format(round(mem)))
-                      return str(mem + " GB")
-                else:
-                      mem = ("{0:.1f}".format(mem))
-                      return str(mem + " GB")
-            else:
-                return "{0} MB".format(mem)
+            return execute("/usr/share/litecc/scripts/memory")
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":

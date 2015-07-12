@@ -76,7 +76,7 @@ MA 02110-1301, USA. ''')
         about.run()
         about.destroy()
     elif lllink == "admin":
-          subprocess.Popen(path, shell=True)
+        subprocess.Popen(path, shell=True, executable='/bin/bash')
     elif lllink == "exportdetails":
         dialog = gtk.FileChooserDialog("Select folder to export details to.", None,
                                        gtk.FILE_CHOOSER_ACTION_SAVE,
@@ -92,23 +92,23 @@ MA 02110-1301, USA. ''')
         execute("{0}/scripts/{1}".format(app_dir, path))
     # need to fix urls
     elif lllink == "help":
-        execute("exo-open file:///usr/share/doc/litemanual/index.html")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open file:///usr/share/doc/litemanual/index.html'])
     elif lllink == "forum":
-        execute("exo-open http://www.linuxliteos.com/forums/")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linuxliteos.com/forums/'])
     elif lllink == "website":
-        execute("exo-open http://www.linuxliteos.com/")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linuxliteos.com/'])
     elif lllink == "facebook":
-        execute("exo-open https://www.facebook.com/pages/Linuxlite/572323192787066")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://www.facebook.com/pages/Linuxlite/572323192787066'])
     elif lllink == "twitter":
-        execute("exo-open http://www.twitter.com/linuxlite/")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.twitter.com/linuxlite/'])
     elif lllink == "google":
-        execute("exo-open https://plus.google.com/+linuxliteos/")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://plus.google.com/+linuxliteos/'])
     elif lllink == "linkedin":
-        execute("exo-open http://www.linkedin.com/in/jerrybezencon")
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linkedin.com/in/jerrybezencon'])
     elif lllink == "screenshot":
         execute("/bin/bash -c /usr/share/litecc/scripts/screenshot")
     elif lllink == "report":
-        execute("gksudo /usr/scripts/systemreport")
+        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])
 
     return True
 

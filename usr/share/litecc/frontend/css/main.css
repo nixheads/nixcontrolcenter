@@ -480,3 +480,7 @@ th, td {
 .cart:hover #bars {
     display: table;
 }
+
+.ips {
+  display: none;
+}

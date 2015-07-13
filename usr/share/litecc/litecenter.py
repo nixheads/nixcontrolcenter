@@ -118,6 +118,15 @@ def get_info(info):
     try:
         if info == "os":
             return open('/etc/llver', 'r').read().split('\\n')[0]
+        if info == "desk":
+            try:
+                    try:
+	                    desk = os.environ['XDG_CURRENT_DESKTOP']
+                    except KeyError:
+                            desk = os.environ['DESKTOP_SESSION']
+            except:
+                     desk = 'None'
+            return desk
         if info == "arc":
             return os.uname()[4]
         if info == "host":
@@ -138,14 +147,31 @@ def get_info(info):
             else:
                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "netstatus":
-            return execute("/usr/share/litecc/scripts/connection_check")
+            testConnection = """
+            # Test for network conection
+            ping -c 1 8.8.8.8 2>&1 | grep "connect: Network is unreachable" &>/dev/null
+            if [ $? = 1 ]; then
+                   echo "<font color=green>Active</font>"
+            else
+                    echo "<font color=red>Not connected</font>" 
+            fi
+            """
+            netstatus = os.popen("bash -c '%s'" % testConnection)
+            return netstatus.readline()
         if info == "netip":
             ip = execute("hostname -I").split(' ')
             if len(ip) > 1:
-                ip = ip[0]
+                   ip = ip[0]
+            elif ip == "":
+                   ip = 'None'
+            else:
+                   ip = 'None'
             return ip
         if info == "gateway":
-            return execute("/usr/share/litecc/scripts/gateway")
+            gateway = execute("route -n | grep 'UG[ \t]' | awk '{print $2}'")
+            if len(gateway) == 0: 
+                   gateway = 'None'
+            return gateway
     except (OSError, TypeError, Exception) as e:
         print(e)
         return " "
@@ -217,7 +243,7 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip', 'gateway']:
+    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip', 'gateway']:
          page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']

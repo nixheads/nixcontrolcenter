@@ -5,6 +5,13 @@
         <link media="all" rel="stylesheet" type="text/css" href="css/main.css"/>
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/jquery.main.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("ip").toggle();
+    });
+});
+</script>
     </head>
     <body>
         <div id="wrapper">
@@ -22,8 +29,8 @@
 
                                     <h1>System Information</h1>
 
-                                    <p>A brief overview of your system</p>
-                                </div>
+                                   <p>A brief overview of your system</p>
+                             </div>
                             </article>
                             <div id="contents">
                                 <h1 style="padding-bottom:0px;padding-left:50px">Computer</h1>
@@ -56,7 +63,7 @@
                                    </tr>
                                   </table> 
                                  <br>
-
+  
                                 <h1 style="padding-bottom:0px;padding-left:65px">Devices</h1>
                                    <table style="width:100%">
                                    <tr>
@@ -70,26 +77,30 @@
                                    </table>
                                  <br>
 
-                                <h1 style="padding-bottom:0px;padding-left:60px">Internet</h1>
+                                <h1 style="padding-bottom:0px;padding-left:60px">Internet <button>Show/Hide IP</button></h1>
                                    <table style="width:100%">
                                    <tr>
                                           <td width=20% align=right>Status: </td>
-                                          <td> <span id="ty">{netstatus}</span></td>
+                                          <td><span id="ty">{netstatus}</span></td>
                                    </tr>
                                    <tr>
-                                           <td width=20% align=right>Local IP Address: </td>
-                                           <td><span id="ty">{netip}</span></td>
+                                           <td width=20% align=right>&nbsp;<ip class="ips">Local IP Address: </ip></td>
+                                           <td><ip class="ips"><span id="ty">{netip}</span></ip></td>
                                    </tr>
                                    <tr>
-                                           <td width=20% align=right>Gateway: </td>
-                                           <td><span id="ty">{gateway}</span></td>
+                                           <td width=20% align=right>&nbsp;<ip class="ips">Gateway: </ip></td>
+                                           <td><ip class="ips"><span id="ty">{gateway}</span></ip></td>
+                                   </tr>
+                                     <tr>
+                                           <td width=20% align=right>&nbsp;<ip class="ips"><font color="#BC6819">Warning: </font></ip></td>
+                                           <td><ip class="ips"><span id="ty">Do not share your IP's online! Don't use the screenshoter while IP's are displayed!</span></ip></td>
                                    </tr>
                                    </table>
                                    
                                  <br>
                                  <br>
                                  <br>
-                                <center>
+
                                 <div class="link cart" onclick="location.href=('help://')"><img src="images/help.png">
 
                                      <div id="bars">Help</div>
@@ -118,15 +129,14 @@
 
                                     <div id="bars">LinkedIn</div>
                                 </div>
-                                <div class="link cart" onclick="location.href=('screenshot://')"><img src="images/screenshot.png">
-
-                                    <div id="bars">Screenshot</div>
-                                </div>
                                 <div class="link cart" onclick="location.href=('report://')"><img src="images/report.png">
 
                                     <div id="bars">Report</div>
                                 </div>
-                                </center>
+                                <ip><div class="link cart" onclick="location.href=('screenshot://')"><img src="images/screenshot.png">
+
+                                    <div id="bars">Screenshot</div>
+                                </div></ip>
 
                             </div>
                         </div>

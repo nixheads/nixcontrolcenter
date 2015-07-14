@@ -1,0 +1,15 @@
+#!/bin/bash
+update_status() {
+
+LAST_RUN=`stat -c %y /var/lib/apt/periodic/update-success-stamp | cut -d" " -f1`
+TODAY_DATE=`date +%Y-%m-%d`
+
+if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
+   echo "Last updated on <font color=red>${LAST_RUN}</font> time to update." 
+else
+  echo "Last updated on ${LAST_RUN}."
+fi
+
+}
+
+update_status

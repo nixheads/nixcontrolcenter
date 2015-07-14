@@ -133,6 +133,8 @@ def get_info(info):
             return os.uname()[1]
         if info == "kernel":
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
+        if info == "updates":
+            return execute("/usr/share/litecc/scripts/updates")
         if info == "processor":
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
            return processor
@@ -243,7 +245,7 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip', 'gateway']:
+    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
          page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']

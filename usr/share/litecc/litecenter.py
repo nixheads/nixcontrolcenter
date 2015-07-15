@@ -49,7 +49,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name("Linux Lite Control Center")
-        about.set_version("1.0-0060")
+        about.set_version("1.0-0070")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -267,7 +267,7 @@ def main():
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
-    window.set_size_request(870, 650)
+    window.set_size_request(880, 660)
     # Valtam do we need to resize window?
     window.set_resizable(False)
     window.set_position(gtk.WindowPosition.CENTER),

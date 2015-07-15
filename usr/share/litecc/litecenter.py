@@ -109,6 +109,8 @@ MA 02110-1301, USA. ''')
         subprocess.Popen("/usr/share/litecc/scripts/screenshot")
     elif lllink == "report":
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])
+    elif lllink == "update":
+        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
 
     return True
 

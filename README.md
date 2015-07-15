@@ -5,4 +5,4 @@ Authors - [Jerry Bezencon,](https://github.com/linuxlite/) [Misko-2083,](https:/
 
 An all-in-one control application for Linux Lite.
 
-![](http://i.imgur.com/yEUBzhb.png)
+![](http://i.imgur.com/b02DDdU.png)

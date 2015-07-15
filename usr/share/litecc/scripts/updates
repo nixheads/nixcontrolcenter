@@ -1,7 +1,9 @@
 #!/bin/bash
+UPFILE="/var/lib/apt/periodic/update-success-stamp"
+
 update_status() {
 
-LAST_RUN=`stat -c %y /var/lib/apt/periodic/update-success-stamp | cut -d" " -f1`
+LAST_RUN=`stat -c %y "$UPFILE" | cut -d" " -f1`
 TODAY_DATE=`date +%Y-%m-%d`
 
 if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
@@ -12,4 +14,14 @@ fi
 
 }
 
-update_status
+check(){
+
+if [ -f $UPFILE ]; then
+   update_status
+else
+   echo "Updates not been done, Please update soon."
+fi
+
+}
+
+check

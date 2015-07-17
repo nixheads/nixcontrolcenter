@@ -9,7 +9,7 @@ TODAY_DATE=`date +%Y-%m-%d`
 if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
    echo "Last updated on <a style=\"color: red;\" onclick=\"location.href=('update://')\">${LAST_RUN}</a> time to update"
 else
-  echo "Last updated on <a style=\"color: green;\" onclick=\"location.href=('update://')\">${LAST_RUN}</a>"
+  echo "Last updated on <font color="green">${LAST_RUN}</font>"
 fi
 
 }

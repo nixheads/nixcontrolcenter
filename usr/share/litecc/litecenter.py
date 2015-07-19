@@ -15,7 +15,7 @@ from locale import getdefaultlocale
 
 """
 # Linux Lite Control Center
-# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic
+# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic, Josh Erickson
 # Dependencies - python, python-webkit
 # Licence - GPL v2
 # Website - http://www.linuxliteos.com
@@ -66,8 +66,9 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
+		"Milos Pavlovic\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-		"Milos Pavlovic"
+		"Josh Erickson\n<josh@snoj.us>"
             ]
         )
         about.set_comments("Designed for Linux Lite")

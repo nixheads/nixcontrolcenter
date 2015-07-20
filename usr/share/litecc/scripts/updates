@@ -7,9 +7,9 @@ LAST_RUN=`stat -c %y "$UPFILE" | cut -d" " -f1`
 TODAY_DATE=`date +%Y-%m-%d`
 
 if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
-   echo "Last updated on <a style=\"color: red;\" onclick=\"location.href=('update://')\">${LAST_RUN}</a> time to update"
+   echo "Last updated on <a style=\"color: red;cursor: pointer;\" onclick=\"location.href=('update://')\" title=\"Start Updates\">${LAST_RUN}</a> time to update"
 else
-  echo "Last updated on <font color="green">${LAST_RUN}</font>"
+  echo "Last updated on <font style=\"color: green;\">${LAST_RUN}</font>"
 fi
 
 }

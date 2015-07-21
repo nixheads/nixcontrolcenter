@@ -15,7 +15,7 @@ from locale import getdefaultlocale
 
 """
 # Linux Lite Control Center
-# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic
+# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic, Josh Erickson
 # Dependencies - python, python-webkit
 # Licence - GPL v2
 # Website - http://www.linuxliteos.com
@@ -49,7 +49,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name("Linux Lite Control Center")
-        about.set_version("1.0-0090")
+        about.set_version("1.0-0110")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -66,8 +66,9 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
+		"Milos Pavlovic\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-		"Milos Pavlovic"
+		"Josh Erickson\n<josh@snoj.us>"
             ]
         )
         about.set_comments("Designed for Linux Lite")

@@ -248,6 +248,7 @@ margin-left: auto;
 .logo a {
 	display:block;
 	height:100%;
+	outline: none;
 }
 
 /*Buttons - left hand side tabs, System Information, Software etc*/

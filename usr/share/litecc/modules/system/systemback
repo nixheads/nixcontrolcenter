@@ -1,0 +1,5 @@
+[module]
+name = Systemback
+ico = systemback.png
+desc = Simple system backup and restore application
+command = /usr/lib/systemback/sbsustart systemback gtk+

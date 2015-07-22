@@ -11,6 +11,6 @@ echo 100  #This here is to kill the progress bar
 }
 
 if zenity --question --text="This will send  a screenshot to imgur.com online image hosting service.\nMake sure the Lite Control Center window is in focus.\n\nProceed?"; then
-	uploadImage "$HOME/shot.png" | zenity --progress --pulsate --auto-close --auto-kill --title="Uploading Image" --text="Sending image to imgur.com\n\nPlease wait..." 
-	rm "$HOME/shot.png"
+	uploadImage "$HOME/liteccshot.png" | zenity --progress --pulsate --auto-close --auto-kill --title="Uploading Image" --text="Sending image to imgur.com\n\nPlease wait..." 
+	rm "$HOME/liteccshot.png"
 fi

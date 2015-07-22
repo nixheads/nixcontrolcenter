@@ -107,7 +107,7 @@ MA 02110-1301, USA. ''')
     elif lllink == "linkedin":
         subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linkedin.com/in/jerrybezencon'])
     elif lllink == "screenshot":
-        os.system("/bin/bash -c 'scrot -u $HOME/shot.png'")
+        os.system("/bin/bash -c 'scrot -u $HOME/liteccshot.png'")
         subprocess.Popen(['/bin/bash', '-c', '/usr/share/litecc/scripts/screenshot'])
     elif lllink == "report":
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])

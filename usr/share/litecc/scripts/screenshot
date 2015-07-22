@@ -1,18 +1,16 @@
 #!/bin/bash
 
 function uploadImage {
-  url=$(curl -s -F "image=@$1" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml | grep -E -o "<original_image>(.)*</original_image>" | grep -E -o "http://i.imgur.com/[^<]*")
+url=`curl -s -F "image=@$1" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml | grep -E -o "<original_image>(.)*</original_image>" | grep -E -o "http://i.imgur.com/[^<]*"`
 if [ "$?" != "0" ]; then
     zenity --error --text="Could not send screenshot"
     exit
 fi 
- /bin/sh -c "exo-open '$url' "
+echo 100  #This here is to kill the progress bar
+ /bin/sh -c "exo-open '$url'"
 }
+
 if zenity --question --text="This will send  a screenshot to imgur.com online image hosting service.\nMake sure the Lite Control Center window is in focus.\n\nProceed?"; then
-        sleep 0.5
-	scrot -u "$HOME/shot.png" 
-	uploadImage "$HOME/shot.png" | zenity --progress --pulsate --auto-close --auto-kill --title "Uploading Image" --text "Sending image to imgur.com\n\nPlease wait..." 
+	uploadImage "$HOME/shot.png" | zenity --progress --pulsate --auto-close --auto-kill --title="Uploading Image" --text="Sending image to imgur.com\n\nPlease wait..." 
 	rm "$HOME/shot.png"
-else
-		zenity --error --title="Upload Cancelled" --text="Upload Cancelled."
 fi

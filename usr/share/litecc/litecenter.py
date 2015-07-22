@@ -66,7 +66,7 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
-		"Milos Pavlovic\n",
+		"Milos Pavlovic\n<mpsrbija@gmail.com>\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
 		"Josh Erickson\n<josh@snoj.us>"
             ]

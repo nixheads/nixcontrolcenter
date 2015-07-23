@@ -10,6 +10,13 @@ $(document).ready(function(){
     $("button").click(function(){
         $("ip").toggle();
     });
+ $(".box_content").hide();
+  //toggle the componenet with class msg_body
+  $(".bazuka").click(function()
+  {
+    $(this).next(".box_content").slideToggle(500);
+  });
+
 });
 </script>
     </head>
@@ -215,9 +222,10 @@ $(document).ready(function(){
                                 <br>
 
                                 <div id="box">
-                                    <div id="box_content">
+                                    <div class="launcher bazuka"><img  src="/usr/share/litecc/frontend/images/guideinfo.png"/><h3>Guide</h3><span>Click here to toggle the Guide information</span></div>
+
+                                    <div class="box_content">
                                         <p>
-                                        <h2>Guide</h2>
                                         <br><br><b>Edit Software Sources</b> - Change Country location and add PPAs.</p>
                                         <b>Install Updates</b> - Get the latest Updates for your Computer.</p>
                                         <b>Install/Remove Software</b> - Choose from 1000's of applications to install for free.</p>

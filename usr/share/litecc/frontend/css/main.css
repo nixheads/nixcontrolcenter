@@ -363,7 +363,6 @@ margin-left: auto;
 	padding-right: 6px;
 }
 #box_content {
-	
 	padding: 6px;
 }
 
@@ -485,3 +484,10 @@ th, td {
 .ips {
   display: none;
 }
+
+.bazuka {
+margin: 1px;
+cursor: pointer;
+position: relative;
+}
+

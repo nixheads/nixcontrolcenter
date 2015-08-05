@@ -121,7 +121,11 @@ def get_info(info):
     """here we gather some over all basic info"""
     try:
         if info == "os":
-            return open('/etc/llver', 'r').read().split('\\n')[0]
+           try:
+                  osinfo = open('/etc/llver', 'r').read().split('\\n')[0]
+           except:
+                  osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
+           return osinfo
         if info == "desk":
             try:
                     try:

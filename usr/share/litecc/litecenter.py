@@ -113,9 +113,17 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])
     elif lllink == "update":
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
-
+    elif lllink == "refresh":
+        reload()
+        
     return True
 
+def reload():
+    info = ""
+    get_info(info)
+    frontend = frontend_fill()
+    browser.load_html_string(frontend, "file://{0}/frontend/".format(app_dir))
+    return True
 
 def get_info(info):
     """here we gather some over all basic info"""

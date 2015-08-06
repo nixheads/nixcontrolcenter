@@ -49,7 +49,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name("Linux Lite Control Center")
-        about.set_version("1.0-0120")
+        about.set_version("1.0-0140")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -113,15 +113,27 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])
     elif lllink == "update":
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
-
+    elif lllink == "refresh":
+        reload()
+        
     return True
 
+def reload():
+    info = ""
+    get_info(info)
+    frontend = frontend_fill()
+    browser.load_html_string(frontend, "file://{0}/frontend/".format(app_dir))
+    return True
 
 def get_info(info):
     """here we gather some over all basic info"""
     try:
         if info == "os":
-            return open('/etc/llver', 'r').read().split('\\n')[0]
+           try:
+                  osinfo = open('/etc/llver', 'r').read().split('\\n')[0]
+           except:
+                  osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
+           return osinfo
         if info == "desk":
             try:
                     try:

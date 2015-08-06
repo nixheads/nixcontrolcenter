@@ -7,7 +7,7 @@
         <script type="text/javascript" src="js/jquery.main.js"></script>
 <script>
 $(document).ready(function(){
-    $("button").click(function(){
+    $(".button_show").click(function(){
         $("ip").toggle();
     });
  $(".box_content").hide();
@@ -40,7 +40,7 @@ $(document).ready(function(){
                              </div>
                             </article>
                             <div id="contents">
-                                <h1 style="padding-bottom:0px;padding-left:50px">Computer</h1>
+                                <h1 style="padding-bottom:0px;padding-left:50px">Computer <button onclick="location.href=('refresh://')">Refresh</button></h1>
                                    <table style="width:100%">
                                    <tr>
                                           <td width=20% align=right>Operating System: </td>
@@ -87,7 +87,7 @@ $(document).ready(function(){
                                    </table>
                                  <br>
 
-                                <h1 style="padding-bottom:0px;padding-left:60px">Internet <button>Show/Hide IP</button></h1>
+                                <h1 style="padding-bottom:0px;padding-left:60px">Internet <button class="button_show">Show/Hide IP</button></h1>
                                    <table style="width:100%">
                                    <tr>
                                           <td width=20% align=right>Status: </td>

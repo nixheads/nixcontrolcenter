@@ -199,10 +199,6 @@ top: 0;
 	color: rgb(82, 92, 102);
 margin-left: 153px;
 }
-[dir=rtl] .tabs .text-section{
-	margin-right: 153px;
-margin-left: auto;
-	}
 .tabs .text-section .help {
 	position: absolute;
 	right: 5px;
@@ -218,10 +214,6 @@ margin-left: auto;
 	opacity: 0.4;
 	cursor: pointer;
 	-webkit-transition: all .50s ease-in-out;
-}
-[dir=rtl] .text-section .help {
-	left: 5px;
-	right: auto;
 }
 .tabs .text-section .help:hover {
 	opacity: 1;

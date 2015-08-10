@@ -417,32 +417,6 @@ border: 1px solid;
 padding: 5px;
 padding-right: 25px;
 }
-[dir=ltr] .export_details {
-	left: auto;
-	right: 20px;
-	padding-right: 5px;
-	padding-left: 25px;
-}
-.export_details span {
-background: url("../images/icons-mono.png");
-background-position: 0px -315px;
-display: block;
-height: 24px;
-width: 24px;
-float: right;
-margin-right: -24px;
-margin-bottom: -5px;
-margin-top: -3px;
-}
-[dir=ltr] .export_details span {
-	float: left;
-	margin-right: 0px;
-	margin-left: -24px;
-}
-.export_details:active {
-	color: #eee;
-	background: rgb(130, 195, 245);
-	}
 	
 th, td {
     padding: 3px;

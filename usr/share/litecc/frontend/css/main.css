@@ -270,18 +270,13 @@ margin-left: 153px;
 /*Buttons - hovering*/
 .buttons a:hover { 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67abd6), color-stop(100%,#4a7fc2)); }
+/*Buttons - actual image file*/
 .buttons li.active a {
 	background:url(../images/button-active.png) no-repeat -113px -2px;
 	margin:0 -21px 0 0;
 	padding:0 21px 0 0;
 	outline: none;
 }
-/*Buttons - actual image file*/
-[dir=rtl] .buttons li.active a {
-	background: url(../images/button-active_right.png) no-repeat -63px -2px;
-	margin: 0 0px 0 -21px;
-	padding:0 0 0 21px;
-	}
 .buttons li.active a em {top:40px;}
 .buttons a span {
     background: url("../images/icons-mono.png") no-repeat;

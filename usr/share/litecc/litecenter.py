@@ -135,14 +135,13 @@ def get_info(info):
                   osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
            return osinfo
         if info == "desk":
-            try:
-                    try:
-	                    desk = os.environ['XDG_CURRENT_DESKTOP']
-                    except KeyError:
-                            desk = os.environ['DESKTOP_SESSION']
-            except:
-                     desk = 'None'
-            return desk
+            desktop_session = os.environ.get("XDG_CURRENT_DESKTOP")
+            if desktop_session in ["gnome","unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox", 
+                                   "blackbox", "openbox", "icewm", "jwm", "afterstep","trinity", "kde"]:
+                    return desktop_session
+                #This is hacky but oh well
+            elif "XFCE" in desktop_session or desktop_session.startswith("xfce"):
+                   return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
         if info == "arc":
             return os.uname()[4]
         if info == "host":

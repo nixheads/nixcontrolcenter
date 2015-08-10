@@ -124,9 +124,6 @@ top: 0;
     padding-right: 10px;
     position: relative;
 }
-[dir=rtl] #solgan {
-	float: right;
-	margin-left:10px;
 
 /*Rectangular buttons on each tab eg. Install Updates*/
 	
@@ -341,10 +338,6 @@ margin-left: auto;
 	margin-bottom: 10px;
 
 }
-[dir=rtl] #box {
-	margin-right: 0px;
-	margin-left: 20px;
-	}
 #box_title {
 	color: #4a4a4a;
 	font-size: 14px;
@@ -354,10 +347,6 @@ margin-left: auto;
 	padding-left: 6px;
        -webkit-border-top-left-radius: 5px;
        -webkit-border-top-right-radius: 5px;
-}
-[dir=rtl] #box_title {
-	padding-left: 0px;
-	padding-right: 6px;
 }
 #box_content {
 	padding: 6px;

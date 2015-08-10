@@ -88,10 +88,6 @@ left: 0;
 bottom: 0;
 top: 81px;
 }
-[dir=ltr] #contents {
-left: 164px;
-right: 0;
-}
 #ty {
     color: #000000;
     font-size: 13px;
@@ -179,10 +175,6 @@ top: 0;
 	width: 38px;
 	float: right;
 	padding-right: 10px;
-}
-[dir=ltr] .launcher img { float: left; }
-.launcher:hover img {
-	opacity: 0.8;
 }
 #sidebar .shadow {
 	background:url(../images/bg-shadow.png) no-repeat;
@@ -318,8 +310,6 @@ margin-left: auto;
 	-webkit-transform: scalex(-1);
 	right: 146px;
 }
-[dir=ltr] .buttons span {background-position-x:0px; }
-[dir=ltr] .buttons .active span {background-position-x:2px; }
 
 [dir=rtl] .buttons span {background-position-x:130px; }
 [dir=rtl] .buttons .active span {background-position-x:132px; }
@@ -444,12 +434,6 @@ border: 1px solid;
 padding: 5px;
 padding-right: 25px;
 }
-[dir=ltr] .export_details {
-	left: auto;
-	right: 20px;
-	padding-right: 5px;
-	padding-left: 25px;
-}
 .export_details span {
 background: url("../images/icons-mono.png");
 background-position: 0px -315px;
@@ -460,11 +444,6 @@ float: right;
 margin-right: -24px;
 margin-bottom: -5px;
 margin-top: -3px;
-}
-[dir=ltr] .export_details span {
-	float: left;
-	margin-right: 0px;
-	margin-left: -24px;
 }
 .export_details:active {
 	color: #eee;

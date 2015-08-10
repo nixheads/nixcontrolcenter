@@ -124,6 +124,9 @@ top: 0;
     padding-right: 10px;
     position: relative;
 }
+[dir=rtl] #solgan {
+	float: right;
+	margin-left:10px;
 
 /*Rectangular buttons on each tab eg. Install Updates*/
 	
@@ -311,12 +314,15 @@ margin-left: auto;
 	text-indent: 20px;
 	
 }
-.buttons em {
+[dir=rtl] .buttons em {
 	-webkit-transform: scalex(-1);
 	right: 146px;
 }
-.buttons span {background-position-x:0px; }
-.buttons .active span {background-position-x:2px; }
+[dir=ltr] .buttons span {background-position-x:0px; }
+[dir=ltr] .buttons .active span {background-position-x:2px; }
+
+[dir=rtl] .buttons span {background-position-x:130px; }
+[dir=rtl] .buttons .active span {background-position-x:132px; }
 
 .buttons .ico1 span {background-position-y: 0;}
 .buttons .active .ico1 span {background-position-y: -25px;}
@@ -338,6 +344,10 @@ margin-left: auto;
 	margin-bottom: 10px;
 
 }
+[dir=rtl] #box {
+	margin-right: 0px;
+	margin-left: 20px;
+	}
 #box_title {
 	color: #4a4a4a;
 	font-size: 14px;
@@ -347,6 +357,10 @@ margin-left: auto;
 	padding-left: 6px;
        -webkit-border-top-left-radius: 5px;
        -webkit-border-top-right-radius: 5px;
+}
+[dir=rtl] #box_title {
+	padding-left: 0px;
+	padding-right: 6px;
 }
 #box_content {
 	padding: 6px;

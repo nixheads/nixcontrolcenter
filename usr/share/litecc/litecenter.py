@@ -99,7 +99,7 @@ MA 02110-1301, USA. ''')
     elif lllink == "website":
         subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linuxliteos.com/'])
     elif lllink == "facebook":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://www.facebook.com/pages/Linuxlite/572323192787066'])
+        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://www.facebook.com/linuxliteos'])
     elif lllink == "twitter":
         subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.twitter.com/linuxlite/'])
     elif lllink == "google":

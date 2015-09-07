@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import fcntl
 
 if sys.version_info >= (3, 0):
     from configparser import ConfigParser
@@ -24,6 +25,15 @@ from locale import getdefaultlocale
 app_dir = '/usr/share/litecc'
 lang = getdefaultlocale()[0].split('_')[0]
 
+"""lock the file so no two instances can run"""
+fh=0
+def run_once():
+    global fh
+    fh=open(os.path.realpath(__file__),'r')
+    try:
+        fcntl.flock(fh,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    except:
+        sys.exit (0)
 
 def execute(command, ret=True):
     """function to exec everything, subprocess used to fork"""
@@ -327,6 +337,7 @@ def main():
 
 if __name__ == '__main__':
     try:
+    	run_once()
         main()
     except (Exception, AttributeError, FileNotFoundError) as e:
         print("Exiting due to error: {0}".format(e))

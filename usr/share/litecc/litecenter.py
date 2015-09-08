@@ -337,7 +337,7 @@ def main():
 
 if __name__ == '__main__':
     try:
-    	run_once()
+        run_once()
         main()
     except (Exception, AttributeError, FileNotFoundError) as e:
         print("Exiting due to error: {0}".format(e))

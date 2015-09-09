@@ -1,4 +1,4 @@
-import os
+import os, re
 import sys
 import subprocess
 import fcntl
@@ -164,7 +164,12 @@ def get_info(info):
            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
            return processor
         if info == "mem":
-            return execute("/usr/share/litecc/scripts/memory")
+           raminfo = subprocess.Popen(['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
+           ram = ''.join(filter(re.compile('M').search, raminfo)).split()
+           used = int(ram[2]) - int(ram[5]) - int(ram[6])
+           usedpercent = ((float(used) / float(ram[1])) * 100)
+           ramdisplay = '%s MB / %s MB' % (used, ram[1])
+           return ramdisplay
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
@@ -173,6 +178,13 @@ def get_info(info):
                return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
             else:
                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+        if info == "disk":
+           p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t', 'jfs', '-t', 'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t', 'fuseblk', '-t', 'xfs'], stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
+           total = p1.splitlines()[-1]
+           used = total.split()[3]
+           size = total.split()[2]
+           disk = '%sB / %sB' % (used, size) 
+           return str(disk)
         if info == "netstatus":
             testConnection = """
             # Test for network conection
@@ -295,7 +307,7 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
+    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'disk', 'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
          page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']
@@ -342,4 +354,3 @@ if __name__ == '__main__':
     except (Exception, AttributeError, FileNotFoundError) as e:
         print("Exiting due to error: {0}".format(e))
         sys.exit(1)
-

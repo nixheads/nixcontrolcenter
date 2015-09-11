@@ -76,9 +76,9 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
-		"Milos Pavlovic\n<mpsrbija@gmail.com>\n",
+        "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-		"Josh Erickson\n<josh@snoj.us>"
+        "Josh Erickson\n<josh@snoj.us>"
             ]
         )
         about.set_comments("Designed for Linux Lite")
@@ -125,7 +125,7 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
     elif lllink == "refresh":
         reload()
-        
+       
     return True
 
 def reload():
@@ -146,7 +146,7 @@ def get_info(info):
            return osinfo
         if info == "desk":
             desktop_session = os.environ.get("XDG_CURRENT_DESKTOP")
-            if desktop_session in ["gnome","unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox", 
+            if desktop_session in ["gnome","unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox",
                                    "blackbox", "openbox", "icewm", "jwm", "afterstep","trinity", "kde"]:
                     return desktop_session
                 #This is hacky but oh well
@@ -167,8 +167,8 @@ def get_info(info):
            raminfo = subprocess.Popen(['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
            ram = ''.join(filter(re.compile('M').search, raminfo)).split()
            used = int(ram[2]) - int(ram[5]) - int(ram[6])
-           usedpercent = ((float(used) / float(ram[1])) * 100)
-           ramdisplay = '%s MB / %s MB' % (used, ram[1])
+           usedpercent = "%.1f" % ((float(used) / float(ram[1])) * 100)
+           ramdisplay = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used, usedpercent)
            return ramdisplay
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
@@ -181,10 +181,10 @@ def get_info(info):
         if info == "disk":
            p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t', 'jfs', '-t', 'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t', 'fuseblk', '-t', 'xfs'], stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
            total = p1.splitlines()[-1]
-           used = total.split()[3]
-           size = total.split()[2]
-           disk = '%sB / %sB' % (used, size) 
-           return str(disk)
+           used = total.split()[3].replace(total.split()[3][-1:], " " + total.split()[3][-1:] + "B")
+           size = total.split()[2].replace(total.split()[2][-1:]," " + total.split()[2][-1:] + "B")
+           disk = "{0} (Used: {1})".format(size, used)
+           return disk
         if info == "netstatus":
             testConnection = """
             # Test for network conection
@@ -192,7 +192,7 @@ def get_info(info):
             if [ $? = 1 ]; then
                    echo "<font color=green>Active</font>"
             else
-                    echo "<font color=red>Not connected</font>" 
+                    echo "<font color=red>Not connected</font>"
             fi
             """
             netstatus = os.popen("bash -c '%s'" % testConnection)
@@ -208,7 +208,7 @@ def get_info(info):
             return ip
         if info == "gateway":
             gateway = execute("route -n | grep 'UG[ \t]' | awk '{print $2}'")
-            if len(gateway) == 0: 
+            if len(gateway) == 0:
                    gateway = 'None'
             return gateway
     except (OSError, TypeError, Exception) as e:
@@ -266,10 +266,10 @@ def get_modules(section):
         mod_dir.sort()
         for i in mod_dir:
             parser.read("{0}/modules/{1}/{2}".format(app_dir, section, i))
-            
+           
             #get the command from module
             command = parser.get('module', 'command')
-            
+           
             chk = command.split(' ')[0]
             if chk == "gksudo":
                     chk = command.split(' ')[1]

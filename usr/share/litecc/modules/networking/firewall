@@ -1,0 +1,5 @@
+[module]
+name = Firewall
+ico = firewall.png
+desc = Configure your firewall
+command = gufw

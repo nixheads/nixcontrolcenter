@@ -1,0 +1,5 @@
+[module]
+name = Scanner
+ico = scanner.png
+desc = Scan documents
+command = simple-scan

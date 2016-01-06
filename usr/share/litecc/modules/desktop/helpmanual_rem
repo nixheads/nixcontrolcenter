@@ -1,0 +1,5 @@
+[module]
+name = Remove Help Manual Icon
+ico = helpmanual_rem.png
+desc = Remove Help Manual icon from the Desktop
+command = /usr/share/litecc/scripts/helpmanual_rem

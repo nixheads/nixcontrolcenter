@@ -1,0 +1,6 @@
+#!/bin/bash
+# Show Help Manual icon on the Desktop
+# By Jerry Bezencon
+
+# Desktop
+cp /usr/share/litecc/resources/helpmanual.desktop ~/Desktop

@@ -1,0 +1,5 @@
+[module]
+name = Add Help Manual Icon
+ico = helpmanual_add.png
+desc = Add Help Manual icon to the Desktop
+command = /usr/share/litecc/scripts/helpmanual_add

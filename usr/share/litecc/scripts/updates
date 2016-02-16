@@ -1,5 +1,5 @@
 #!/bin/bash
-UPFILE="/var/lib/apt/periodic/update-success-stamp"
+UPFILE="/var/cache/apt/pkgcache.bin"
 
 update_status() {
 

@@ -10,8 +10,6 @@ from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
 gi.require_version('WebKit', '3.0')
 from gi.repository import WebKit as webkit
-import threading
-import multiprocessing
 
 app_dir = '/usr/share/litecc'
 
@@ -317,12 +315,7 @@ def frontend_fill():
 def main():
     global browser
     global window
-    # frontend = frontend_fill()
-    for i in range(multiprocessing.cpu_count()):
-        t = threading.Thread(target=frontend_fill)
-        t.start()
-        t.join()
-        frontend = t
+    frontend = frontend_fill()
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")

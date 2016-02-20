@@ -321,6 +321,7 @@ def main():
     for i in range(multiprocessing.cpu_count()):
         t = threading.Thread(target=frontend_fill)
         t.start()
+        frontend = t
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")

@@ -3,25 +3,24 @@ UPFILE="/var/cache/apt/pkgcache.bin"
 
 update_status() {
 
-LAST_RUN=`stat -c %y "$UPFILE" | cut -d" " -f1`
-TODAY_DATE=`date +%Y-%m-%d`
+  LAST_RUN=`stat -c %y "$UPFILE" | cut -d" " -f1`
+  TODAY_DATE=`date +%Y-%m-%d`
 
-if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
-   echo "Last updated on <a style=\"color: red;cursor: pointer;\" onclick=\"location.href=('update://')\" title=\"Start Updates\">${LAST_RUN}</a> time to update"
-   echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font><button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey" onclick="location.href=('update://')\">Run Updates</button>"
-else
-    echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font><button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Run Updates</button>"
-fi
+  if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
+    echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font> <button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Click to Run Updates</button>"
+  else
+    echo "Last updated on <font style=\"color: green;\">${LAST_RUN}</font>"
+  fi
 
 }
 
 check(){
 
-if [ -f $UPFILE ]; then
-   update_status
-else
-   echo "Updates not been done, Please update soon"
-fi
+  if [ -f $UPFILE ]; then
+    update_status
+  else
+    echo "<font style=\"color: red;\">No record of updates.</font> <button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Click to Run Updates</button>"
+  fi
 
 }
 

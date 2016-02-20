@@ -10,7 +10,7 @@ if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
    echo "Last updated on <a style=\"color: red;cursor: pointer;\" onclick=\"location.href=('update://')\" title=\"Start Updates\">${LAST_RUN}</a> time to update"
    echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font><button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey" onclick="location.href=('update://')\">Run Updates</button>"
 else
-   echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font><button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey" onclick="location.href=('update://')\">Run Updates</button>"
+    echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font><button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Run Updates</button>"
 fi
 
 }

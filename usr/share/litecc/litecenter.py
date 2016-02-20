@@ -6,12 +6,10 @@ import fcntl
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
 from gi.repository import WebKit as webkit
-from locale import getdefaultlocale
 from configparser import ConfigParser
 
 
 app_dir = '/usr/share/litecc'
-lang = getdefaultlocale()[0].split('_')[0]
 
 """lock the file so no two instances can run"""
 fh = 0

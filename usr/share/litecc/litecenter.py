@@ -4,6 +4,7 @@ import sys
 import subprocess
 import fcntl
 from configparser import ConfigParser
+import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf

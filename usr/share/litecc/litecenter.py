@@ -3,11 +3,11 @@ import re
 import sys
 import subprocess
 import fcntl
+import Tkinter
 from configparser import ConfigParser
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
-import pygtk
 from gi.repository.GdkPixbuf import Pixbuf
 gi.require_version('WebKit', '3.0')
 from gi.repository import WebKit as webkit
@@ -322,7 +322,8 @@ def main():
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
     window.set_size_request(880, 660)
-    if (880) > (gtk.gdk.screen_height()):
+    rootsize = Tkinter.Tk()
+    if (880) > (rootsize.winfo.screenheight()):
         window.set_resizable(False)
     else:
         window.set_resizable(True)

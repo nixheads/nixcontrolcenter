@@ -327,7 +327,7 @@ def main():
         window.set_size_request(880, 660)
     else:
         window.set_resizable(True)
-        window.set_size_request(880, 600)
+        window.set_size_request(880, 500)
 
     window.set_position(gtk.WindowPosition.CENTER),
     browser = webkit.WebView()

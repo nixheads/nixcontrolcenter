@@ -322,7 +322,7 @@ def main():
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
     window.set_size_request(880, 660)
-    if (880) > (gtk.gdk.screen_height()):
+    if (880) > (gdk.screen_height()):
         window.set_resizable(False)
     else:
         window.set_resizable(True)

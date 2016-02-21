@@ -323,7 +323,7 @@ def main():
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
     window.set_size_request(880, 660)
     rootsize = tkinter.Tk()
-    if rootsize.winfo_screenheight() > 700:
+    if rootsize.winfo_screenheight() > 800:
         window.set_resizable(False)
     else:
         window.set_resizable(True)

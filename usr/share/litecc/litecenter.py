@@ -3,7 +3,7 @@ import re
 import sys
 import subprocess
 import fcntl
-import Tkinter
+import tkinter
 from configparser import ConfigParser
 import gi
 gi.require_version('Gtk', '3.0')
@@ -322,7 +322,7 @@ def main():
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
     window.set_size_request(880, 660)
-    rootsize = Tkinter.Tk()
+    rootsize = tkinter.Tk()
     if (880) > (rootsize.winfo.screenheight()):
         window.set_resizable(False)
     else:

@@ -7,7 +7,7 @@ update_status() {
   TODAY_DATE=`date +%Y-%m-%d`
 
   if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
-    echo "Last updated on <font style=\"color: red;\">${LAST_RUN}</font> <button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Click to Run Updates</button>"
+    echo " <section class="gradient">Last updated on <font style=\"color: red;\">${LAST_RUN}</font> <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Click to Run Updates</button></section>"
   else
     echo "Last updated on <font style=\"color: green;\">${LAST_RUN}</font>"
   fi
@@ -19,7 +19,7 @@ check(){
   if [ -f $UPFILE ]; then
     update_status
   else
-    echo "<font style=\"color: red;\">No record of updates.</font> <button style=\"padding-bottom:0px;padding-left:50pxi;color: #2B333B; background-color: #ECECEC; border: 1pt ridge lightgrey\" onclick=\"location.href=('update://')\">Click to Run Updates</button>"
+    echo " <section class="gradient"><font style=\"color: red;\">No record of updates.</font> <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Click to Run Updates</button></section>"
   fi
 
 }

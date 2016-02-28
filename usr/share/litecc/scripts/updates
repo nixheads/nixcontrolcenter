@@ -1,5 +1,6 @@
 #!/bin/bash
 UPFILE="/var/cache/apt/pkgcache.bin"
+UPDATES=$(aptitude -F%p --disable-columns search ~U | wc -l)
 
 update_status() {
 
@@ -7,9 +8,9 @@ update_status() {
   TODAY_DATE=`date +%Y-%m-%d`
 
   if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
-    echo " <section class="gradient">Last updated on <font style=\"color: red;\">${LAST_RUN}</font> <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Click to Run Updates</button></section>"
+    echo " <section class="gradient">Last checked on <font style=\"color: red;\">${LAST_RUN}</font>, <font style=\"color: red;\">${UPDATES} </font> updates available.<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>"
   else
-    echo "Last updated on <font style=\"color: green;\">${LAST_RUN}</font>"
+    echo " <section class="gradient">Last checked on <font style=\"color: green;\">${LAST_RUN}</font>, <font style=\"color: red;\">${UPDATES} </font> updates available.<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>"
   fi
 
 }

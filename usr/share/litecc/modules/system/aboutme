@@ -1,5 +1,5 @@
 [module]
 name = About Me
-ico = mugshot.svg
+ico = mugshot.png
 desc = Set your fullname and avatar for login
 command = /usr/bin/mugshot

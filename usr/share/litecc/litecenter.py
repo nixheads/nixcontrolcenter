@@ -1,39 +1,31 @@
-import os, re
+import os
+import re
 import sys
 import subprocess
 import fcntl
-
-if sys.version_info >= (3, 0):
-    from configparser import ConfigParser
-else:
-    from ConfigParser import ConfigParser
-
+import tkinter
+from configparser import ConfigParser
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
+gi.require_version('WebKit', '3.0')
 from gi.repository import WebKit as webkit
 
-from locale import getdefaultlocale
-
-"""
-# Linux Lite Control Center
-# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic, Josh Erickson
-# Dependencies - python, python-webkit
-# Licence - GPL v2
-# Website - http://www.linuxliteos.com
-"""
-
 app_dir = '/usr/share/litecc'
-lang = getdefaultlocale()[0].split('_')[0]
 
 """lock the file so no two instances can run"""
-fh=0
+fh = 0
+
+
 def run_once():
     global fh
-    fh=open(os.path.realpath(__file__),'r')
+    fh = open(os.path.realpath(__file__), 'r')
     try:
-        fcntl.flock(fh,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except:
-        sys.exit (0)
+        sys.exit(0)
+
 
 def execute(command, ret=True):
     """function to exec everything, subprocess used to fork"""
@@ -42,7 +34,8 @@ def execute(command, ret=True):
         p = os.popen(command)
         return p.readline()
     else:
-        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
+                             stderr=subprocess.STDOUT)
         return p.stdout
 
 
@@ -76,9 +69,9 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
-        "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
+                "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-        "Josh Erickson\n<josh@snoj.us>"
+                "Josh Erickson\n<josh@snoj.us>"
             ]
         )
         about.set_comments("Designed for Linux Lite")
@@ -89,9 +82,10 @@ MA 02110-1301, USA. ''')
     elif lllink == "admin":
         subprocess.Popen(path, shell=True, executable='/bin/bash')
     elif lllink == "exportdetails":
-        dialog = gtk.FileChooserDialog("Select folder to export details to.", None,
-                                       gtk.FILE_CHOOSER_ACTION_SAVE,
-                                       (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_SAVE, gtk.RESPONSE_OK))
+        dialog = gtk.FileChooserDialog("Select folder to export details to.",
+                                       None, gtk.FILE_CHOOSER_ACTION_SAVE,
+                                       (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                                        gtk.STOCK_SAVE, gtk.RESPONSE_OK))
         dialog.set_default_response(gtk.RESPONSE_OK)
         dialog.set_action(gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER)
         response = dialog.run()
@@ -125,8 +119,9 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
     elif lllink == "refresh":
         reload()
-       
+
     return True
+
 
 def reload():
     info = ""
@@ -135,23 +130,24 @@ def reload():
     browser.load_html_string(frontend, "file://{0}/frontend/".format(app_dir))
     return True
 
+
 def get_info(info):
     """here we gather some over all basic info"""
     try:
         if info == "os":
-           try:
-                  osinfo = open('/etc/llver', 'r').read().split('\\n')[0]
-           except:
-                  osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
-           return osinfo
+            try:
+                osinfo = open('/etc/llver', 'r').read().split('\\n')[0]
+            except:
+                osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
+            return osinfo
         if info == "desk":
             desktop_session = os.environ.get("XDG_CURRENT_DESKTOP")
-            if desktop_session in ["gnome","unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox",
-                                   "blackbox", "openbox", "icewm", "jwm", "afterstep","trinity", "kde"]:
-                    return desktop_session
-                #This is hacky but oh well
+            if desktop_session in ["gnome", "unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox",
+                                   "blackbox", "openbox", "icewm", "jwm", "afterstep", "trinity", "kde"]:
+                return desktop_session
+            # This is hacky but oh well
             elif "XFCE" in desktop_session or desktop_session.startswith("xfce"):
-                   return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
+                return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
         if info == "arc":
             return os.uname()[4]
         if info == "host":
@@ -161,30 +157,34 @@ def get_info(info):
         if info == "updates":
             return execute("/usr/share/litecc/scripts/updates")
         if info == "processor":
-           processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
-           return processor
+            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
+            return processor
         if info == "mem":
-           raminfo = subprocess.Popen(['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
-           ram = ''.join(filter(re.compile('M').search, raminfo)).split()
-           used = int(ram[2]) - int(ram[5]) - int(ram[6])
-           usedpercent = "%.1f" % ((float(used) / float(ram[1])) * 100)
-           ramdisplay = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used, usedpercent)
-           return ramdisplay
+            raminfo = subprocess.Popen(
+                ['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
+            ram = ''.join(filter(re.compile('M').search, raminfo)).split()
+            used = int(ram[2]) - int(ram[5]) - int(ram[6])
+            usedpercent = "%.1f" % ((float(used) / float(ram[1])) * 100)
+            ramdisplay = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used, usedpercent)
+            return ramdisplay
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
             audio = execute("lspci | grep 'Audio device:'")
             if len(audio) == 0:
-               return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
             else:
-               return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "disk":
-           p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t', 'jfs', '-t', 'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t', 'fuseblk', '-t', 'xfs'], stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
-           total = p1.splitlines()[-1]
-           used = total.split()[3].replace(total.split()[3][-1:], " " + total.split()[3][-1:] + "B")
-           size = total.split()[2].replace(total.split()[2][-1:]," " + total.split()[2][-1:] + "B")
-           disk = "{0} (Used: {1})".format(size, used)
-           return disk
+            p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t', 'jfs', '-t',
+                                   'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t', 'fuseblk', '-t', 'xfs'], stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
+            total = p1.splitlines()[-1]
+            used = total.split()[3].replace(total.split()[3][-1:],
+                                            " " + total.split()[3][-1:] + "B")
+            size = total.split()[2].replace(total.split()[2][-1:],
+                                            " " + total.split()[2][-1:] + "B")
+            disk = "{0} (Used: {1})".format(size, used)
+            return disk
         if info == "netstatus":
             testConnection = """
             # Test for network conection
@@ -192,7 +192,7 @@ def get_info(info):
             if [ $? = 1 ]; then
                    echo "<font color=green>Active</font>"
             else
-                    echo "<font color=red>Not connected</font>"
+                   echo "<font color=red>Not connected</font>"
             fi
             """
             netstatus = os.popen("bash -c '%s'" % testConnection)
@@ -200,16 +200,16 @@ def get_info(info):
         if info == "netip":
             ip = execute("hostname -I").split(' ')
             if len(ip) > 1:
-                   ip = ip[0]
+                ip = ip[0]
             elif ip == "":
-                   ip = 'None'
+                ip = 'None'
             else:
-                   ip = 'None'
+                ip = 'None'
             return ip
         if info == "gateway":
             gateway = execute("route -n | grep 'UG[ \t]' | awk '{print $2}'")
             if len(gateway) == 0:
-                   gateway = 'None'
+                gateway = 'None'
             return gateway
     except (OSError, TypeError, Exception) as e:
         print(e)
@@ -229,9 +229,10 @@ Devices:
 Hard disks:
 Mount Points:
 This file was generated by Linux Lite Control Center. '''.format(
-        get_info("os"), get_info("kernel"), get_info("processor"), get_info("arc"), get_info("mem"), execute("lspci")))
+        get_info("os"), get_info("kernel"), get_info("processor"),
+        get_info("arc"), get_info("mem"), execute("lspci")))
 
-# Which
+
 def which(program):
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
@@ -249,13 +250,15 @@ def which(program):
 
     return None
 
+
 def get_modules(section):
     """we try and load errrors"""
     try:
         mod_dir = os.listdir("{0}/modules/{1}/".format(app_dir, section))
         mod_dir.sort()
     except Exception as details:
-        os.system("zenity --error --text 'Error : {0}' --title 'Module Loading Error'".format(details))
+        os.system(
+            "zenity --error --text 'Error : {0}' --title 'Module Loading Error'".format(details))
         return exit()
 
     if isinstance(mod_dir, list) and len(mod_dir) < 1:
@@ -266,32 +269,22 @@ def get_modules(section):
         mod_dir.sort()
         for i in mod_dir:
             parser.read("{0}/modules/{1}/{2}".format(app_dir, section, i))
-           
-            #get the command from module
+
+            # get the command from module
             command = parser.get('module', 'command')
-           
+
             chk = command.split(' ')[0]
             if chk == "gksudo":
-                    chk = command.split(' ')[1]
+                chk = command.split(' ')[1]
             elif chk == "gksu":
-                    chk = command.split(' ')[1]
+                chk = command.split(' ')[1]
             checking = which(chk)
-            if checking != None:
+            if checking is not None:
                 ico = parser.get('module', 'ico')
                 # check if the icon exists
                 ico = "{0}/frontend/icons/modules/{1}".format(app_dir, ico)
-
-                # check if the name has a different language
-                if parser.has_option('module', 'name[%s]'):
-                    name = parser.get('module', 'name[%s]')
-                else:
-                    name = parser.get('module', 'name')
-
-                # check if the description has a different language
-                if parser.has_option('module', 'desc[%s]'):
-                    desc = parser.get('module', 'desc[%s]')
-                else:
-                    desc = parser.get('module', 'desc')
+                name = parser.get('module', 'name')
+                desc = parser.get('module', 'desc')
                 command = command.replace("'", ''' \\' ''')
 
                 admin += '''<div class="launcher" onclick="location.href='admin://{0}'" >
@@ -301,6 +294,7 @@ def get_modules(section):
                 </div>'''.format(command, ico, name, desc)
         return admin
 
+
 def frontend_fill():
     """build all html junk"""
 
@@ -308,7 +302,7 @@ def frontend_fill():
     page = filee.read()
 
     for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'disk', 'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
-         page = page.replace("{%s}" % i, get_info(i))
+        page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']
     sections.sort()
@@ -322,16 +316,19 @@ def frontend_fill():
 def main():
     global browser
     global window
-
     frontend = frontend_fill()
-
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")
     window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
-    window.set_size_request(880, 660)
-    # Valtam do we need to resize window?
-    window.set_resizable(False)
+    rootsize = tkinter.Tk()
+    if rootsize.winfo_screenheight() > 700:
+        window.set_resizable(False)
+        window.set_size_request(880, 660)
+    else:
+        window.set_resizable(True)
+        window.set_size_request(880, 500)
+
     window.set_position(gtk.WindowPosition.CENTER),
     browser = webkit.WebView()
     swindow = gtk.ScrolledWindow()
@@ -340,11 +337,9 @@ def main():
     window.show_all()
     browser.connect("navigation-requested", functions)
     browser.load_html_string(frontend, "file://{0}/frontend/".format(app_dir))
-    # no right click menu
     settings = browser.get_settings()
     settings.set_property('enable-default-context-menu', False)
     browser.set_settings(settings)
-    # Engage
     gtk.main()
 
 if __name__ == '__main__':

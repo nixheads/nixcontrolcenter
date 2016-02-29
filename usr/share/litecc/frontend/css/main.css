@@ -1,3 +1,39 @@
+button {
+  display: inline-block;
+  font-size: 12px;
+  font-family: "Ubuntu",serif;
+  line-height: 1.2;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button:focus {
+  outline: none
+}
+
+section.gradient button {
+  color: #fff;
+  background-color: #528CC8;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67abd6), color-stop(100%,#4a7fc2)); }
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 13px;
+}
+
+section.gradient button:hover,
+section.gradient button.hover {
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 13px #193047;
+}
+
+section.gradient button:active,
+section.gradient button.active {
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 25px #193047;
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -5,9 +41,9 @@
 ::-webkit-scrollbar-track {
 background-color:transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    background-color: #333; 
+    background-color: #333;
     border-radius: 8px;
 }
 header, footer, article, section, hgroup, nav, figure, aside {display: block;}
@@ -21,16 +57,16 @@ body {
 	margin:0;
 	font:13px/14px "Ubuntu", sans-serif;  /*App default font size*/
 	color:#8a8a8a;
-	
+
 	height:100%;
 }
 
 .dialog {
 	position: absolute;
 	top: 0;
-	
-	
-	
+
+
+
 	right: 25%;
 	left: 25%;
 	width: 400px;
@@ -40,8 +76,8 @@ body {
 	border: 1px solid #ddd;
 	border-radius: 0 0 10px 10px ;
 	z-index: 9999;
-	
-} 
+
+}
 .dim {
 	position: absolute;
 
@@ -49,8 +85,8 @@ body {
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 9998;
-	
-} 
+
+}
 img {border-style:none;}
 a {
 	color:#8a8a8a;
@@ -76,7 +112,7 @@ form,fieldset{
 }
 #content {
 	float:right;
-	
+
 }
 #contents {
 margin-top: 10px;
@@ -99,8 +135,8 @@ right: 0;
     cursor:text;
 }
 .c1 {
-	
-	position: absolute; 
+
+	position: absolute;
 	width:100%;
 	bottom: 0;
 	top: 0;
@@ -129,7 +165,7 @@ top: 0;
 	margin-left:10px;
 
 /*Rectangular buttons on each tab eg. Install Updates*/
-	
+
 }.launcher {
     border-color: transparent;
     border-radius: 5px;
@@ -279,7 +315,7 @@ margin-left: auto;
 	outline: none;
 }
 /*Buttons - hovering*/
-.buttons a:hover { 
+.buttons a:hover {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67abd6), color-stop(100%,#4a7fc2)); }
 .buttons li.active a {
 	background:url(../images/button-active.png) no-repeat -113px -2px;
@@ -312,7 +348,7 @@ margin-left: auto;
 	height:100%;
 	overflow:hidden;
 	text-indent: 20px;
-	
+
 }
 [dir=rtl] .buttons em {
 	-webkit-transform: scalex(-1);
@@ -337,7 +373,7 @@ margin-left: auto;
 .buttons .ico6 span {background-position-y: -262px;}
 
 #box {
-	background-color:#f7f7f7;  
+	background-color:#f7f7f7;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.2) -1px 1px 4px;
 	border-radius: 5px;
 	margin-right: 20px;
@@ -376,7 +412,7 @@ margin-left: auto;
 .tooltip span
 {
   visibility: hidden;
-  position: absolute; 
+  position: absolute;
   bottom: 40px;
   left: 100px;
   z-index: 999;
@@ -387,8 +423,8 @@ margin-left: auto;
   border: 2px solid #FFF;
   opacity: .8;
   background-color: #494949;
-  color: #FFF;                        
-  border-radius: 3px;  
+  color: #FFF;
+  border-radius: 3px;
 
 }
 
@@ -401,8 +437,8 @@ margin-left: auto;
 
 .link {
 	padding: 10px; /*space between icons*/
-	width: 48px; 
-	display: inline-block; 
+	width: 48px;
+	display: inline-block;
 	cursor : pointer;
 	}
 .link img {
@@ -430,7 +466,7 @@ margin-left: auto;
 left: 20px;
 bottom: 20px;
   background: #4cb1ff;
-  
+
   color: #fff;
   box-shadow: 0 1px 0 hsla(0,0%,100%,.2) inset,
               0 0 0 1px hsla(0,0%,100%,.1) inset,
@@ -470,7 +506,7 @@ margin-top: -3px;
 	color: #eee;
 	background: rgb(130, 195, 245);
 	}
-	
+
 th, td {
     padding: 3px;
 }
@@ -490,4 +526,3 @@ margin: 1px;
 cursor: pointer;
 position: relative;
 }
-

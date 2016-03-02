@@ -1,0 +1,5 @@
+[module]
+name = Lite Updater
+ico = liteupdater.png
+desc = An Updates tool for you tray
+command = lite-updater

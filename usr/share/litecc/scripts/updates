@@ -1,6 +1,6 @@
 #!/bin/bash
 UPFILE="/var/cache/apt/pkgcache.bin"
-UPDATES=$(aptitude -F%p --disable-columns search ~U | wc -l)
+UPDATES=$(/usr/bin/lite-pkg-count)
 
 update_status() {
 

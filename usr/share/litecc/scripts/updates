@@ -1,6 +1,6 @@
 #!/bin/bash
 UPFILE="/var/cache/apt/pkgcache.bin"
-UPDATES=$(/usr/bin/lite-pkg-count)
+UPDATES=$(/usr/share/litecc/scripts/updates-count)
 
 update_status() {
 

@@ -4,8 +4,8 @@ UPDATES=$(/usr/share/litecc/scripts/updates-count)
 
 update_status() {
 
-  LAST_RUN=`stat -c %y "$UPFILE" | cut -d" " -f1`
-  TODAY_DATE=`date +%Y-%m-%d`
+    LAST_RUN=$(stat -c %y "$UPFILE" | cut -d" " -f1)
+    TODAY_DATE=$(date +%Y-%m-%d)
 
   if [ "${LAST_RUN}" != "${TODAY_DATE}" ]; then
     echo " <section class="gradient">Last checked on <font style=\"color: red;\">${LAST_RUN}</font>, <font style=\"color: red;\">${UPDATES} </font> updates available.<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>"

@@ -155,9 +155,6 @@ form,fieldset{
   padding-right: 10px;
   position: relative;
 
-
-  /*Rectangular buttons on each tab eg. Install Updates*/
-
   }.launcher {
     border-color: transparent;
     border-radius: 5px;

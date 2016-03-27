@@ -1,332 +1,332 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" DIR="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link media="all" rel="stylesheet" type="text/css" href="css/main.css"/>
-        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery.main.js"></script>
-<script>
-$(document).ready(function(){
+<head>
+  <meta charset="utf-8">
+  <link media="all" rel="stylesheet" type="text/css" href="css/main.css"/>
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.main.js"></script>
+  <script>
+  $(document).ready(function(){
     $(".button_show").click(function(){
-        $("ip").toggle();
+      $("ip").toggle();
     });
- $(".box_content").hide();
-  //toggle the componenet with class msg_body
-  $(".bazuka").click(function()
-  {
-    $(this).next(".box_content").slideToggle(500);
+    $(".box_content").hide();
+    //toggle the componenet with class msg_body
+    $(".bazuka").click(function()
+    {
+      $(this).next(".box_content").slideToggle(500);
+    });
+
   });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div class="c1">
+        <div class="tabs">
+          <!--
+          Brian: The id='tab-{num}' is what determines content order, I just matched the tab IDs to the
+          ones at the bottom of this file.  For the rest, edit your markup similarly.
+        -->
+        <div id="tab-1" class="tab">
+          <article>
+            <div class="text-section">
+              <img id="slogan" src="icons/sys_info.png"/>
 
-});
-</script>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="content">
-                <div class="c1">
-                    <div class="tabs">
-                        <!--
-                            Brian: The id='tab-{num}' is what determines content order, I just matched the tab IDs to the
-                            ones at the bottom of this file.  For the rest, edit your markup similarly.
-                        -->
-		       <div id="tab-1" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/sys_info.png"/>
+              <h1>My Computer</h1>
 
-                                    <h1>My Computer</h1>
-
-                                   <p>A brief overview of your system</p>
-                             </div>
-                            </article>
-                            <div id="contents">
-                                <section class="gradient"><h1 style="padding-bottom:0px;padding-left:50px">Computer <button style="padding-bottom:0px;padding-left:50pxi" onclick="location.href=('refresh://')">Refresh</button></h1></section>
-                                   <table style="width:100%">
-                                   <tr>
-                                          <td width=20% align=right>Operating System: </td>
-                                          <td><span id="ty">{os}</span></td>
-                                   </tr>
-                                   <tr>
-                                          <td width=20% align=right>Desktop: </td>
-                                          <td><span id="ty">{desk}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Processor:  </td>
-                                           <td><span id="ty">{processor}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Architecture: </td>
-                                           <td><span id="ty">{arc}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Memory: </td>
-                                           <td><span id="ty">{mem}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Hostname: </td>
-                                           <td><span id="ty">{host}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Kernel: </td>
-                                           <td><span id="ty">{kernel}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Software Updates: </td>
-                                           <td><span id="ty">{updates}</span></td>
-                                   </tr>
-                                  </table> 
-                                 <br>
-  
-                                <h1 style="padding-bottom:0px;padding-left:65px">Devices</h1>
-                                   <table style="width:100%">
-                                   <tr>
-                                          <td width=20% align=right>Graphics Card: </td>
-                                          <td><span id="ty" align=right>{gfx}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Sound Card: </td>
-                                           <td><span id="ty">{audio}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Storage: </td>
-                                           <td><span id="ty">{disk}</span></td>
-                                   </tr>
-                                   </table>
-                                 <br>
-
-                                 <section class="gradient"><h1 style="padding-bottom:0px;padding-left:60px">Internet <button style="padding-bottom:0px;padding-left:50pxi" class="button_show">Show/Hide IP</button></h1></section>
-                                   <table style="width:100%">
-                                   <tr>
-                                          <td width=20% align=right>Status: </td>
-                                          <td><span id="ty">{netstatus}</span></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Local IP Address: </td>
-                                           <td><ip>***.***.***.***</ip><ip class="ips"><span id="ty">{netip}</span></ip></td>
-                                   </tr>
-                                   <tr>
-                                           <td width=20% align=right>Gateway: </td>
-                                           <td><ip>***.***.***.***</ip><ip class="ips"><span id="ty">{gateway}</span></ip></td>
-                                   </tr>
-                                     <tr>
-                                           <td width=20% align=right><ip><b>Warning:</b> </ip><ip class="ips"><b>Warning:</b> </ip></td>
-                                         <td><ip><b>Do not share your Local IP Address and Gateway online</b></ip><ip class="ips"><font color="#F41818"><b>Do not share your Local IP Address and Gateway online</b></font></ip></td>
-                                   </tr>
-                                    </table>
-                                   
-                                 <br>
-
-                                <center><div class="link cart" onclick="location.href=('help://')"><img src="images/help.png">
-
-                                     <div id="bars">Help</div>
-                                 </div>
-                                <div class="link cart" onclick="location.href=('forum://')"><img src="images/forum.png">
-
-                                     <div id="bars">Forum</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('website://')"><img src="images/website.png">
-
-                                   <div id="bars">Website</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('facebook://')"><img src="images/facebook.png">
-
-                                  <div id="bars">Facebook</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('twitter://')"><img src="images/twitter.png">
-
-                                     <div id="bars">Twitter</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('google://')"><img src="images/googleplus.png">
-
-                                    <div id="bars">Google+</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('linkedin://')"><img src="images/linkedin.png">
-
-                                    <div id="bars">LinkedIn</div>
-                                </div>
-                                <div class="link cart" onclick="location.href=('report://')"><img src="images/report.png">
-
-                                    <div id="bars">Report</div>
-                                </div>
-                                <ip><div class="link cart" onclick="location.href=('screenshot://')"><img src="images/screenshot.png">
-
-                                    <div id="bars">Screenshot</div>
-                                </div></ip>
-                                <ip class="ips"><div class="link cart"><img title="Screenshot disabled on Show/Hide IP" src="images/screenshot_disabled.png">
-
-                                </div></ip>
-                            </div>
-                        </div></center>
-
-                        <div id="tab-2" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/desktop.png"/>
-
-                                    <h1>Desktop</h1>
-
-                                    <p>Manage your desktop environment</p>
-                                    <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
-                                </div>
-                            </article>
-                            <div id="contents">
-                                {desktop_list}
-
-                                <div id="box">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tab-3" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/hardware.png"/>
-
-                                    <h1>Hardware</h1>
-
-                                    <p>Hardware management and configuration for your computer</p>
-                                    <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
-                                </div>
-                            </article>
-                            <div id="contents">
-                                {hardware_list}
-
-                                <div id="box">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tab-4" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/samba.png"/>
-
-                                    <h1>Network</h1>
-
-                                    <p>Manage and configure your home network and connections</p>
-                                    <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
-                                </div>
-                            </article>
-                            <div id="contents">
-                                {networking_list}
-                            </div>
-                        </div>
-
-                        <div id="tab-5" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/packages.png"/>
-
-                                    <h1>Software</h1>
-
-                                    <p>Installing and maintaining software on your system</p>
-                                    <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
-                                </div>
-                            </article>
-                            <div id="contents">
-                                {software_list}
-                                <br>
-
-                                <div id="box">
-                                    <div class="launcher bazuka"><img  src="/usr/share/litecc/frontend/images/guideinfo.png"/><h3>Guide</h3><span>Click here to toggle the Guide information</span></div>
-
-                                    <div class="box_content">
-                                        <p>
-                                        <br><br><b>Edit Software Sources</b> - Change Country location and add PPAs.</p>
-                                        <b>Install Updates</b> - Get the latest Updates for your Computer.</p>
-                                        <b>Install/Remove Software</b> - Choose from 1000's of applications to install for free.</p>
-                                        <b>Lite Software</b> - Install popular software such as Skype and Chrome.</p>
-                                        <b>Lite Upgrade</b> - Upgrade Linux Lite from within a Series.</p>
-                                        <b>Preferred Applications</b> - Select a program as your default eg. Web Browser - Firefox.</p>
-                                        <br>
-
-                                        <div align="center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tab-6" class="tab">
-                            <article>
-                                <div class="text-section">
-                                    <img id="slogan" src="icons/system.png"/>
-
-                                    <h1>System</h1>
-
-                                    <p>Configure and customize your computer</p>
-                                    <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
-                                </div>
-                            </article>
-                            <div id="contents">
-                                {system_list}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <p>A brief overview of your system</p>
             </div>
+          </article>
+          <div id="contents">
+            <section class="gradient"><h1 style="padding-bottom:0px;padding-left:50px">Computer <button style="padding-bottom:0px;padding-left:50pxi" onclick="location.href=('refresh://')">Refresh</button></h1></section>
+            <table style="width:100%">
+              <tr>
+                <td width=20% align=right>Operating System: </td>
+                <td><span id="ty">{os}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Desktop: </td>
+                <td><span id="ty">{desk}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Processor:  </td>
+                <td><span id="ty">{processor}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Architecture: </td>
+                <td><span id="ty">{arc}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Memory: </td>
+                <td><span id="ty">{mem}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Hostname: </td>
+                <td><span id="ty">{host}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Kernel: </td>
+                <td><span id="ty">{kernel}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Software Updates: </td>
+                <td><span id="ty">{updates}</span></td>
+              </tr>
+            </table>
+            <br>
 
-            <aside id="sidebar">
-                <strong class="logo"><a onclick="location.href='about://hi'" href="#"></a></strong>
-                <ul class="tabset buttons">
-                    <!-- Brian: This is what determins the sidebar order item order. Meaningful variables would have helped.-->
-                    <li class="active">
-                        <a href="#tab-1" class="ico1"><span>My Computer</span><em></em></a>
-                    </li>
-                    <li>
-                        <a href="#tab-2" class="ico3"><span>Desktop</span><em></em></a>
-                    </li>
-                    <li>
-                        <a href="#tab-5" class="ico2"><span>Software</span><em></em></a>
-                    </li>
-                    <li>
-                        <a href="#tab-3" class="ico5"><span>Hardware</span><em></em></a>
-                    </li>
-                    <li>
-                        <a href="#tab-4" class="ico6"><span>Network</span><em></em></a>
-                    </li>
-                    <li>
-                        <a href="#tab-6" class="ico4"><span>System</span><em></em></a>
-                    </li>
-                </ul>
-            </aside>
+            <h1 style="padding-bottom:0px;padding-left:65px">Devices</h1>
+            <table style="width:100%">
+              <tr>
+                <td width=20% align=right>Graphics Card: </td>
+                <td><span id="ty" align=right>{gfx}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Sound Card: </td>
+                <td><span id="ty">{audio}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Storage: </td>
+                <td><span id="ty">{disk}</span></td>
+              </tr>
+            </table>
+            <br>
+
+            <section class="gradient"><h1 style="padding-bottom:0px;padding-left:60px">Internet <button style="padding-bottom:0px;padding-left:50pxi" class="button_show">Show/Hide IP</button></h1></section>
+            <table style="width:100%">
+              <tr>
+                <td width=20% align=right>Status: </td>
+                <td><span id="ty">{netstatus}</span></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Local IP Address: </td>
+                <td><ip>***.***.***.***</ip><ip class="ips"><span id="ty">{netip}</span></ip></td>
+              </tr>
+              <tr>
+                <td width=20% align=right>Gateway: </td>
+                <td><ip>***.***.***.***</ip><ip class="ips"><span id="ty">{gateway}</span></ip></td>
+              </tr>
+              <tr>
+                <td width=20% align=right><ip><b>Warning:</b> </ip><ip class="ips"><b>Warning:</b> </ip></td>
+                <td><ip><b>Do not share your Local IP Address and Gateway online</b></ip><ip class="ips"><font color="#F41818"><b>Do not share your Local IP Address and Gateway online</b></font></ip></td>
+              </tr>
+            </table>
+
+            <br>
+
+            <center><div class="link cart" onclick="location.href=('help://')"><img src="images/help.png">
+
+              <div id="bars">Help</div>
+            </div>
+            <div class="link cart" onclick="location.href=('forum://')"><img src="images/forum.png">
+
+              <div id="bars">Forum</div>
+            </div>
+            <div class="link cart" onclick="location.href=('website://')"><img src="images/website.png">
+
+              <div id="bars">Website</div>
+            </div>
+            <div class="link cart" onclick="location.href=('facebook://')"><img src="images/facebook.png">
+
+              <div id="bars">Facebook</div>
+            </div>
+            <div class="link cart" onclick="location.href=('twitter://')"><img src="images/twitter.png">
+
+              <div id="bars">Twitter</div>
+            </div>
+            <div class="link cart" onclick="location.href=('google://')"><img src="images/googleplus.png">
+
+              <div id="bars">Google+</div>
+            </div>
+            <div class="link cart" onclick="location.href=('linkedin://')"><img src="images/linkedin.png">
+
+              <div id="bars">LinkedIn</div>
+            </div>
+            <div class="link cart" onclick="location.href=('report://')"><img src="images/report.png">
+
+              <div id="bars">Report</div>
+            </div>
+            <ip><div class="link cart" onclick="location.href=('screenshot://')"><img src="images/screenshot.png">
+
+              <div id="bars">Screenshot</div>
+            </div></ip>
+            <ip class="ips"><div class="link cart"><img title="Screenshot disabled on Show/Hide IP" src="images/screenshot_disabled.png">
+
+            </div></ip>
+          </div>
+        </div></center>
+
+        <div id="tab-2" class="tab">
+          <article>
+            <div class="text-section">
+              <img id="slogan" src="icons/desktop.png"/>
+
+              <h1>Desktop</h1>
+
+              <p>Manage your desktop environment</p>
+              <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
+            </div>
+          </article>
+          <div id="contents">
+            {desktop_list}
+
+            <div id="box">
+            </div>
+          </div>
         </div>
 
-        <script type="text/javascript">
-            function changeTitle (title) {
-                document.title = title;
-                document.title = 'none';
-            }
-            function themeInst () {
-                location.href = 'themeinstall://' + document.getElementById("file").value
-            }
+        <div id="tab-3" class="tab">
+          <article>
+            <div class="text-section">
+              <img id="slogan" src="icons/hardware.png"/>
+
+              <h1>Hardware</h1>
+
+              <p>Hardware management and configuration for your computer</p>
+              <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
+            </div>
+          </article>
+          <div id="contents">
+            {hardware_list}
+
+            <div id="box">
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-4" class="tab">
+          <article>
+            <div class="text-section">
+              <img id="slogan" src="icons/samba.png"/>
+
+              <h1>Network</h1>
+
+              <p>Manage and configure your home network and connections</p>
+              <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
+            </div>
+          </article>
+          <div id="contents">
+            {networking_list}
+          </div>
+        </div>
+
+        <div id="tab-5" class="tab">
+          <article>
+            <div class="text-section">
+              <img id="slogan" src="icons/packages.png"/>
+
+              <h1>Software</h1>
+
+              <p>Installing and maintaining software on your system</p>
+              <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
+            </div>
+          </article>
+          <div id="contents">
+            {software_list}
+            <br>
+
+            <div id="box">
+              <div class="launcher bazuka"><img  src="/usr/share/litecc/frontend/images/guideinfo.png"/><h3>Guide</h3><span>Click here to toggle the Guide information</span></div>
+
+              <div class="box_content">
+                <p>
+                  <br><br><b>Edit Software Sources</b> - Change Country location and add PPAs.</p>
+                  <b>Install Updates</b> - Get the latest Updates for your Computer.</p>
+                  <b>Install/Remove Software</b> - Choose from 1000's of applications to install for free.</p>
+                  <b>Lite Software</b> - Install popular software such as Skype and Chrome.</p>
+                  <b>Lite Upgrade</b> - Upgrade Linux Lite from within a Series.</p>
+                  <b>Preferred Applications</b> - Select a program as your default eg. Web Browser - Firefox.</p>
+                  <br>
+
+                  <div align="center">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-6" class="tab">
+            <article>
+              <div class="text-section">
+                <img id="slogan" src="icons/system.png"/>
+
+                <h1>System</h1>
+
+                <p>Configure and customize your computer</p>
+                <img class="help" onclick="location.href=('help://')" title="Open the Help Manual" src="images/help.png">
+              </div>
+            </article>
+            <div id="contents">
+              {system_list}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside id="sidebar">
+      <strong class="logo"><a onclick="location.href='about://hi'" href="#"></a></strong>
+      <ul class="tabset buttons">
+        <!-- Brian: This is what determins the sidebar order item order. Meaningful variables would have helped.-->
+        <li class="active">
+          <a href="#tab-1" class="ico1"><span>My Computer</span><em></em></a>
+        </li>
+        <li>
+          <a href="#tab-2" class="ico3"><span>Desktop</span><em></em></a>
+        </li>
+        <li>
+          <a href="#tab-5" class="ico2"><span>Software</span><em></em></a>
+        </li>
+        <li>
+          <a href="#tab-3" class="ico5"><span>Hardware</span><em></em></a>
+        </li>
+        <li>
+          <a href="#tab-4" class="ico6"><span>Network</span><em></em></a>
+        </li>
+        <li>
+          <a href="#tab-6" class="ico4"><span>System</span><em></em></a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <script type="text/javascript">
+  function changeTitle (title) {
+    document.title = title;
+    document.title = 'none';
+  }
+  function themeInst () {
+    location.href = 'themeinstall://' + document.getElementById("file").value
+  }
 
 
-            //Sort each tab's div.contents
-            (function() {
-                var sorter = function(a, b) {
-                    var aindex = $(a).data('menusort') || null,
-                        bindex = $(b).data('menusort') || null;
+  //Sort each tab's div.contents
+  (function() {
+    var sorter = function(a, b) {
+      var aindex = $(a).data('menusort') || null,
+      bindex = $(b).data('menusort') || null;
 
-                    if (aindex !== bindex && (Number.isFinite(aindex) || Number.isFinite(bindex))) {
-                        return (aindex || bindex + 1) - (bindex || aindex + 1);
-                    }
+      if (aindex !== bindex && (Number.isFinite(aindex) || Number.isFinite(bindex))) {
+        return (aindex || bindex + 1) - (bindex || aindex + 1);
+      }
 
-                    var atext = $(a).children('h3').text().trim(),
-                        btext = $(b).children('h3').text().trim();
-                    var s = [atext, btext];
-                    s.sort();
-                    if (s[0] == atext)
-                        return -1;
-                    else
-                        return 1;
-                };
-                $('.tab div[id="contents"]').each(function(i, tab) {
-                    var tabContentItems = $(tab).children('div.launcher');
-                    tabContentItems.sort(sorter);
-                    tabContentItems.detach().appendTo($(tab));
-                });
-            })()
-        </script>
-    </body>
+      var atext = $(a).children('h3').text().trim(),
+      btext = $(b).children('h3').text().trim();
+      var s = [atext, btext];
+      s.sort();
+      if (s[0] == atext)
+      return -1;
+      else
+      return 1;
+    };
+    $('.tab div[id="contents"]').each(function(i, tab) {
+      var tabContentItems = $(tab).children('div.launcher');
+      tabContentItems.sort(sorter);
+      tabContentItems.detach().appendTo($(tab));
+    });
+  })()
+  </script>
+</body>
 </html>

@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import urllib.request
 import subprocess
 import fcntl
 import tkinter
@@ -131,6 +132,14 @@ def reload():
     return True
 
 
+def connected(host='http://google.com'):
+    try:
+        urllib.request.urlopen(host)
+        return True
+    except:
+        return False
+
+
 def get_info(info):
     """here we gather some over all basic info"""
     try:
@@ -186,17 +195,11 @@ def get_info(info):
             disk = "{0} (Used: {1})".format(size, used)
             return disk
         if info == "netstatus":
-            testConnection = """
-            # Test for network conection
-            ping -c 1 8.8.8.8 2>&1 | grep "connect: Network is unreachable" &>/dev/null
-            if [ $? = 1 ]; then
-                   echo "<font color=green>Active</font>"
-            else
-                   echo "<font color=red>Not connected</font>"
-            fi
-            """
-            netstatus = os.popen("bash -c '%s'" % testConnection)
-            return netstatus.readline()
+            if connected():
+                status = '<font color=green>Active</font>'
+            else:
+                status = '<font color=red>Not connected</font>'
+            return status
         if info == "netip":
             ip = execute("hostname -I").split(' ')
             if len(ip) > 1:

@@ -154,15 +154,12 @@ position: absolute;
 bottom: 0;
 top: 0;
 }
-#solgan {
+#slogan {
     float: left;
     margin-left: -15px;
     padding-right: 10px;
     position: relative;
-}
-[dir=rtl] #solgan {
-	float: right;
-	margin-left:10px;
+
 
 /*Rectangular buttons on each tab eg. Install Updates*/
 
@@ -238,10 +235,6 @@ top: 0;
 	color: rgb(82, 92, 102);
 margin-left: 153px;
 }
-[dir=rtl] .tabs .text-section{
-	margin-right: 153px;
-margin-left: auto;
-	}
 .tabs .text-section .help {
 	position: absolute;
 	right: 5px;
@@ -257,10 +250,6 @@ margin-left: auto;
 	opacity: 0.4;
 	cursor: pointer;
 	-webkit-transition: all .50s ease-in-out;
-}
-[dir=rtl] .text-section .help {
-	left: 5px;
-	right: auto;
 }
 .tabs .text-section .help:hover {
 	opacity: 1;
@@ -324,11 +313,6 @@ margin-left: auto;
 	outline: none;
 }
 /*Buttons - actual image file*/
-[dir=rtl] .buttons li.active a {
-	background: url(../images/button-active_right.png) no-repeat -63px -2px;
-	margin: 0 0px 0 -21px;
-	padding:0 0 0 21px;
-	}
 .buttons li.active a em {top:40px;}
 .buttons a span {
     background: url("../images/icons-mono.png") no-repeat;
@@ -350,16 +334,6 @@ margin-left: auto;
 	text-indent: 20px;
 
 }
-[dir=rtl] .buttons em {
-	-webkit-transform: scalex(-1);
-	right: 146px;
-}
-[dir=ltr] .buttons span {background-position-x:0px; }
-[dir=ltr] .buttons .active span {background-position-x:2px; }
-
-[dir=rtl] .buttons span {background-position-x:130px; }
-[dir=rtl] .buttons .active span {background-position-x:132px; }
-
 .buttons .ico1 span {background-position-y: 0;}
 .buttons .active .ico1 span {background-position-y: -25px;}
 .buttons .ico2 span {background-position-y: -47px;}
@@ -380,10 +354,6 @@ margin-left: auto;
 	margin-bottom: 10px;
 
 }
-[dir=rtl] #box {
-	margin-right: 0px;
-	margin-left: 20px;
-	}
 #box_title {
 	color: #4a4a4a;
 	font-size: 14px;
@@ -393,10 +363,6 @@ margin-left: auto;
 	padding-left: 6px;
        -webkit-border-top-left-radius: 5px;
        -webkit-border-top-right-radius: 5px;
-}
-[dir=rtl] #box_title {
-	padding-left: 0px;
-	padding-right: 6px;
 }
 #box_content {
 	padding: 6px;
@@ -460,52 +426,6 @@ margin-left: auto;
 .input-submit {
 	margin-left: -6px;
 }
-.export_details {
-	position: absolute;
-
-left: 20px;
-bottom: 20px;
-  background: #4cb1ff;
-
-  color: #fff;
-  box-shadow: 0 1px 0 hsla(0,0%,100%,.2) inset,
-              0 0 0 1px hsla(0,0%,100%,.1) inset,
-              0 1px 0 hsla(210,54%,20%,.03);
-border: 1px solid;
- border-color: hsla(210,54%,20%,.15) hsla(210,54%,20%,.17) hsla(210,54%,20%,.2);
-   border-radius: 2.5px;
-  cursor: pointer;
-  transition-property: background-color, border-color, box-shadow;
-  transition-duration: 150ms;
-padding: 5px;
-padding-right: 25px;
-}
-[dir=ltr] .export_details {
-	left: auto;
-	right: 20px;
-	padding-right: 5px;
-	padding-left: 25px;
-}
-.export_details span {
-background: url("../images/icons-mono.png");
-background-position: 0px -315px;
-display: block;
-height: 24px;
-width: 24px;
-float: right;
-margin-right: -24px;
-margin-bottom: -5px;
-margin-top: -3px;
-}
-[dir=ltr] .export_details span {
-	float: left;
-	margin-right: 0px;
-	margin-left: -24px;
-}
-.export_details:active {
-	color: #eee;
-	background: rgb(130, 195, 245);
-	}
 
 th, td {
     padding: 3px;

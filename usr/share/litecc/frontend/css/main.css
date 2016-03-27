@@ -119,14 +119,9 @@ margin-top: 10px;
 overflow-y: auto;
 overflow-x: hidden;
 position: absolute;
-right: 164px;
-left: 0;
-bottom: 0;
-top: 81px;
-}
-[dir=ltr] #contents {
 left: 164px;
-right: 0;
+right: 0;bottom: 0;
+top: 81px;
 }
 #ty {
     color: #000000;
@@ -203,17 +198,13 @@ top: 0;
     margin-top: 24px;
     position: absolute;
 }
-
-/*Rectangular buttons - icons on each tab*/
-
 .launcher img {
 	opacity: 1;
 	height: 38px;
 	width: 38px;
-	float: right;
+	float: left;
 	padding-right: 10px;
 }
-[dir=ltr] .launcher img { float: left; }
 .launcher:hover img {
 	opacity: 0.8;
 }
@@ -276,9 +267,6 @@ margin-left: 153px;
 	height:100%;
 	outline: none;
 }
-
-/*Buttons - left hand side tabs, System Information, Software etc*/
-
 .buttons {
 	list-style:none;
 	margin:0;
@@ -303,7 +291,6 @@ margin-left: 153px;
 	cursor:pointer;
 	outline: none;
 }
-/*Buttons - hovering*/
 .buttons a:hover {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67abd6), color-stop(100%,#4a7fc2)); }
 .buttons li.active a {
@@ -312,7 +299,6 @@ margin-left: 153px;
 	padding:0 21px 0 0;
 	outline: none;
 }
-/*Buttons - actual image file*/
 .buttons li.active a em {top:40px;}
 .buttons a span {
     background: url("../images/icons-mono.png") no-repeat;
@@ -398,9 +384,6 @@ margin-left: 153px;
 {
   visibility: visible;
 }
-
-/*System Information tab, bottom web link icons*/
-
 .link {
 	padding: 10px; /*space between icons*/
 	width: 48px;

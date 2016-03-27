@@ -295,7 +295,7 @@ def main():
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")
-    window.set_icon(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
+    window.set_icon(Pixbuf.new_from_file("/usr/share/pixmaps/lite-controlcenter.png".format(app_dir)))
     rootsize = tkinter.Tk()
     if rootsize.winfo_screenheight() > 700:
         window.set_resizable(False)

@@ -382,7 +382,7 @@ form,fieldset{
       visibility: visible;
     }
     .link {
-      padding: 10px; /*space between icons*/
+      padding: 10px;
       width: 48px;
       display: inline-block;
       cursor : pointer;

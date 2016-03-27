@@ -2,4 +2,4 @@
 name = Add Networks Icon
 ico = network.png
 desc = Add Networks icon to the Desktop
-command = cp /usr/share/litecc/frontend/icons/desktop/networks.desktop ~/Desktop
+command = cp /usr/share/litecc/resources/networks.desktop ~/Desktop

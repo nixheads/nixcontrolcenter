@@ -1,5 +1,5 @@
 [module]
 name = Lite Updater
 ico = liteupdater.png
-desc = An Updates tool for you tray
+desc = An update checker for your tray
 command = lite-updater

@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import urllib.request
+import webbrowser
 import subprocess
 import fcntl
 import tkinter
@@ -87,26 +88,29 @@ MA 02110-1301, USA. ''')
         execute("{0}/scripts/{1}".format(app_dir, path))
     # need to fix urls
     elif lllink == "help":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open file:///usr/share/doc/litemanual/index.html'])
+        webbrowser.open('file:///usr/share/doc/litemanual/index.html')
     elif lllink == "forum":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linuxliteos.com/forums/'])
+        webbrowser.open('http://www.linuxliteos.com/forums/')
     elif lllink == "website":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linuxliteos.com/'])
+        webbrowser.open('http://www.linuxliteos.com/')
     elif lllink == "facebook":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://www.facebook.com/linuxliteos'])
+        webbrowser.open('https://www.facebook.com/linuxliteos')
     elif lllink == "twitter":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.twitter.com/linuxlite/'])
+        webbrowser.open('http://www.twitter.com/linuxlite/')
     elif lllink == "google":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open https://plus.google.com/+linuxliteos/'])
+        webbrowser.open('https://plus.google.com/+linuxliteos/')
     elif lllink == "linkedin":
-        subprocess.Popen(['/bin/sh', '-c', 'exo-open http://www.linkedin.com/in/jerrybezencon'])
+        webbrowser.open('http://www.linkedin.com/in/jerrybezencon')
     elif lllink == "screenshot":
         os.system("/bin/bash -c 'scrot -u $HOME/liteccshot.png'")
-        subprocess.Popen(['/bin/bash', '-c', '/usr/share/litecc/scripts/screenshot'])
+        subprocess.Popen(['/bin/bash', '-c',
+                          '/usr/share/litecc/scripts/screenshot'])
     elif lllink == "report":
-        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'])
+        subprocess.Popen(['/bin/bash', '-c',
+                          'gksudo /usr/scripts/systemreport'])
     elif lllink == "update":
-        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'])
+        subprocess.Popen(['/bin/bash', '-c',
+                          'gksudo /usr/scripts/updates-gui'])
     elif lllink == "refresh":
         reload()
 
@@ -295,7 +299,8 @@ def main():
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
     window.set_title("Linux Lite Control Center")
-    window.set_icon(Pixbuf.new_from_file("/usr/share/pixmaps/lite-controlcenter.png".format(app_dir)))
+    window.set_icon(Pixbuf.new_from_file(
+        "/usr/share/pixmaps/lite-controlcenter.png".format(app_dir)))
     rootsize = tkinter.Tk()
     if rootsize.winfo_screenheight() > 700:
         window.set_resizable(False)

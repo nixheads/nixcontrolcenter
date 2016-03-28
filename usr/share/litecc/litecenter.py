@@ -138,17 +138,18 @@ def get_info(info):
     try:
         if info == "os":
             try:
-                osinfo = open('/etc/llver', 'r').read().split('\\n')[0]
+                osin = open('/etc/llver', 'r').read().split('\\n')[0]
             except:
-                osinfo = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
-            return osinfo
+                osin = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
+            return osin
         if info == "desk":
-            desktop_session = os.environ.get("XDG_CURRENT_DESKTOP")
-            if desktop_session in ["gnome", "unity", "cinnamon", "mate", "xfce4", "lxde", "fluxbox",
-                                   "blackbox", "openbox", "icewm", "jwm", "afterstep", "trinity", "kde"]:
-                return desktop_session
+            desk_ses = os.environ.get("XDG_CURRENT_DESKTOP")
+            if desk_ses in ["gnome", "unity", "cinnamon", "mate", "xfce4",
+                            "lxde", "fluxbox", "blackbox", "openbox", "icewm",
+                            "jwm", "afterstep", "trinity", "kde"]:
+                return desk_ses
             # This is hacky but oh well
-            elif "XFCE" in desktop_session or desktop_session.startswith("xfce"):
+            elif "XFCE" in desk_ses or desk_ses.startswith("xfce"):
                 return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
         if info == "arc":
             return os.uname()[4]
@@ -159,16 +160,17 @@ def get_info(info):
         if info == "updates":
             return execute("/usr/share/litecc/scripts/updates")
         if info == "processor":
-            processor = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
-            return processor
+            proc = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
+            return proc
         if info == "mem":
             raminfo = subprocess.Popen(
                 ['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
             ram = ''.join(filter(re.compile('M').search, raminfo)).split()
             used = int(ram[2]) - int(ram[5]) - int(ram[6])
             usedpercent = "%.1f" % ((float(used) / float(ram[1])) * 100)
-            ramdisplay = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used, usedpercent)
-            return ramdisplay
+            ramdis = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used,
+                                                          usedpercent)
+            return ramdis
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
@@ -178,8 +180,11 @@ def get_info(info):
             else:
                 return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "disk":
-            p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t', 'jfs', '-t',
-                                   'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t', 'fuseblk', '-t', 'xfs'], stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
+            p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t',
+                                   'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t'
+                                   'jfs', '-t', 'ntfs', '-t', 'fat32', '-t',
+                                   'btrfs', '-t', 'fuseblk', '-t', 'xfs'],
+                                  stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
             total = p1.splitlines()[-1]
             used = total.split()[3].replace(total.split()[3][-1:],
                                             " " + total.split()[3][-1:] + "B")
@@ -280,7 +285,8 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'disk', 'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
+    for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'disk',
+              'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
         page = page.replace("{%s}" % i, get_info(i))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']

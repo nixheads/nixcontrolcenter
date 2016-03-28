@@ -79,7 +79,7 @@ MA 02110-1301, USA. ''')
         )
         about.set_comments("Designed for Linux Lite")
         about.set_website("http://www.linuxliteos.com")
-        about.set_logo(Pixbuf.new_from_file("{0}/litecc.png".format(app_dir)))
+        about.set_logo(Pixbuf.new_from_file("/usr/share/pixmaps/lite-controlcenter.png".format(app_dir)))
         about.run()
         about.destroy()
     elif lllink == "admin":

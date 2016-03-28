@@ -288,7 +288,7 @@ def frontend_fill():
 
     for i in ['os', 'desk', 'arc', 'processor', 'mem', 'gfx', 'audio', 'disk',
               'kernel', 'updates', 'host', 'netstatus', 'netip', 'gateway']:
-        page = page.replace("{%s}" % i, get_info(i))
+        page = page.replace("{%s}" % i, str(get_info(i)))
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']
     sections.sort()

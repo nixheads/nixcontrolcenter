@@ -8,11 +8,11 @@ import fcntl
 import tkinter
 from configparser import ConfigParser
 import gi
-gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
-gi.require_version('WebKit', '3.0')
 from gi.repository import WebKit as webkit
+gi.require_version('WebKit', '3.0')
+gi.require_version('Gtk', '3.0')
 
 app_dir = '/usr/share/litecc'
 

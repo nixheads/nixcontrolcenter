@@ -162,14 +162,19 @@ def get_info(info):
                 osin = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
             return osin
         if info == "desk":
-            desk_ses = os.environ.get("XDG_CURRENT_DESKTOP")
-            if desk_ses in ["gnome", "unity", "cinnamon", "mate", "xfce4",
-                            "lxde", "fluxbox", "blackbox", "openbox", "icewm",
-                            "jwm", "afterstep", "trinity", "kde"]:
+            desk_ses = os.environ.get("XDG_SESSION_DESKTOP")
+            if desk_ses is None:
+                desk_ses = "Not known"
                 return desk_ses
-            # This is hacky but oh well
-            elif "XFCE" in desk_ses or desk_ses.startswith("xfce"):
-                return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
+            else:
+                if desk_ses in ["GNOME", "Unity", "cinnamon", "mate", "xfce4",
+                                "lxde", "fluxbox", "blackbox", "openbox", "icewm",
+                                "jwm", "afterstep", "trinity", "KDE"]:
+                    return desk_ses
+                elif "XFCE" in desk_ses or desk_ses.startswith("xfce"):
+                    return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
+                elif "ubuntu" in desk_ses:
+                    return "Unity"
         if info == "arc":
             return os.uname()[4]
         if info == "host":

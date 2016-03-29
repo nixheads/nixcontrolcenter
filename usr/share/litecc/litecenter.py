@@ -1,5 +1,4 @@
 import os
-import re
 import sys
 import urllib.request
 import webbrowser
@@ -168,11 +167,11 @@ def get_info(info):
             if "XFCE" in desk_ses or desk_ses.startswith("xfce"):
                 return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
             elif "ubuntu" in desk_ses:
-               return "Unity"
+                return "Unity"
             else:
                 return desk_ses
             if desk_ses is None:
-                desk_ses = "Not known"
+                desk_ses = "Desktop Unknown"
                 return desk_ses
 
         if info == "arc":
@@ -189,8 +188,9 @@ def get_info(info):
         if info == "mem":
             used, total, free, = mem_info()
             mem_usage = float(used) * 100 / float(total)
-            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576, int(used)/1048576, \
-                     mem_usage)
+            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576,
+                                                       int(used)/1048576,
+                                                       mem_usage)
 
             return ramdis
         if info == "gfx":

@@ -167,13 +167,14 @@ def get_info(info):
                 desk_ses = os.environ.get("XDG_CURRENT_DESKTOP")
             if "XFCE" in desk_ses or desk_ses.startswith("xfce"):
                 return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
+            elif "ubuntu" in desk_ses:
+               return "Unity"
             else:
                 return desk_ses
             if desk_ses is None:
                 desk_ses = "Not known"
                 return desk_ses
-            elif "ubuntu" in desk_ses:
-               return "Unity"
+
         if info == "arc":
             return os.uname()[4]
         if info == "host":

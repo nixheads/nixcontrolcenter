@@ -84,10 +84,8 @@ MA 02110-1301, USA. ''')
         about.destroy()
     elif lllink == "admin":
         subprocess.Popen(path, shell=True, executable='/bin/bash')
-    # uses executep to pipe process fork
     elif lllink == "script":
         execute("{0}/scripts/{1}".format(app_dir, path))
-    # need to fix urls
     elif lllink == "help":
         webbrowser.open('file:///usr/share/doc/litemanual/index.html')
     elif lllink == "forum":

@@ -135,6 +135,23 @@ def connected(host='http://google.com'):
         return False
 
 
+def mem_info():
+    f = open('/proc/meminfo')
+    for line in f:
+        if line.startswith('MemTotal:'):
+            mem_total = int(line.split()[1]) * 1024
+        elif line.startswith('Active: '):
+            mem_active = int(line.split()[1]) * 1024
+        elif line.startswith('MemFree:'):
+            mem_free = (int(line.split()[1]) * 1024)
+
+
+
+    f.close()
+
+    return (mem_active, mem_total, mem_free)
+
+
 def get_info(info):
     """here we gather some over all basic info"""
     try:
@@ -165,13 +182,11 @@ def get_info(info):
             proc = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
             return proc
         if info == "mem":
-            raminfo = subprocess.Popen(
-                ['free', '-m'], stdout=subprocess.PIPE).communicate()[0].decode('Utf-8').split('\n')
-            ram = ''.join(filter(re.compile('M').search, raminfo)).split()
-            used = int(ram[2]) - int(ram[5]) - int(ram[6])
-            usedpercent = "%.1f" % ((float(used) / float(ram[1])) * 100)
-            ramdis = "{0} MB  (Used: {1} MB {2}%)".format(ram[1], used,
-                                                          usedpercent)
+            used, total, free, = mem_info()
+            mem_usage = float(used) * 100 / float(total)
+            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576, int(used)/1048576, \
+                     mem_usage)
+
             return ramdis
         if info == "gfx":
             return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]

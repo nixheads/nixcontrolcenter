@@ -142,8 +142,6 @@ def mem_info():
         elif line.startswith('MemFree:'):
             mem_free = (int(line.split()[1]) * 1024)
 
-
-
     f.close()
 
     return (mem_active, mem_total, mem_free)

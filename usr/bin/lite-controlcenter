@@ -137,17 +137,21 @@ def mem_info():
     f = open('/proc/meminfo')
     for line in f:
         if line.startswith('MemTotal:'):
-            mem_total = int(line.split()[1]) * 1024
-        elif line.startswith('Active: '):
-            mem_active = int(line.split()[1]) * 1024
+            mem_total = (int(line.split()[1]) * 1024.0)
+        elif line.startswith('Active:'):
+            mem_active = (int(line.split()[1]) * 1024.0)
+        elif line.startswith('Inactive:'):
+            mem_inactive = (int(line.split()[1]) * 1024.0)
         elif line.startswith('MemFree:'):
-            mem_free = (int(line.split()[1]) * 1024)
+            mem_free = (int(line.split()[1]) * 1024.0)
         elif line.startswith('Cached:'):
-            mem_cached = (int(line.split()[1]) * 1024)
+            mem_cached = (int(line.split()[1]) * 1024.0)
+        elif line.startswith('Buffers:'):
+            mem_buffers = (int(line.split()[1]) * 1024.0)
 
     f.close()
 
-    return (mem_active, mem_total, mem_free, mem_cached)
+    return (mem_total, mem_active, mem_inactive, mem_free, mem_cached, mem_buffers)
 
 
 def get_info(info):
@@ -185,11 +189,11 @@ def get_info(info):
             proc = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
             return proc
         if info == "mem":
-            used, total, free, cached, = mem_info()
-            pie = int(used) + int(cached)
+            total, active, inactive, free, cached, buffers, = mem_info()
+            pie = ((int(total) - int(free)) - (int(buffers) + int(cached)))
             mem_usage = float(pie) * 100 / float(total)
             ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576,
-                                                       int(used)/1048576 + int(cached)/1048576,
+                                                       pie/1024/1024,
                                                        mem_usage)
 
             return ramdis

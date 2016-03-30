@@ -142,10 +142,12 @@ def mem_info():
             mem_active = int(line.split()[1]) * 1024
         elif line.startswith('MemFree:'):
             mem_free = (int(line.split()[1]) * 1024)
+        elif line.startswith('Cached:'):
+            mem_cached = (int(line.split()[1]) * 1024)
 
     f.close()
 
-    return (mem_active, mem_total, mem_free)
+    return (mem_active, mem_total, mem_free, mem_cached)
 
 
 def get_info(info):
@@ -183,10 +185,11 @@ def get_info(info):
             proc = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
             return proc
         if info == "mem":
-            used, total, free, = mem_info()
-            mem_usage = float(used) * 100 / float(total)
+            used, total, free, cached, = mem_info()
+            pie = int(used) + int(cached)
+            mem_usage = float(pie) * 100 / float(total)
             ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576,
-                                                       int(used)/1048576,
+                                                       int(used)/1048576 + int(cached)/1048576,
                                                        mem_usage)
 
             return ramdis

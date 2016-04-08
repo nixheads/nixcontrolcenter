@@ -9,8 +9,8 @@ An all-in-one control center application for [Linux Lite](https://linuxliteos.co
 
 
 ##Authors
-[Jerry Bezencon](https://github.com/linuxlite/)
-[Misko-2083](https://github.com/Misko-2083/)
-[Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope/)
-[Brian Tomlinson](https://github.com/darthlukan)
-[Josh Erickson](https://github.com/snoj)
+- [Jerry Bezencon](https://github.com/linuxlite/)
+- [Misko-2083](https://github.com/Misko-2083/)
+- [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope/)
+- [Brian Tomlinson](https://github.com/darthlukan)
+- [Josh Erickson](https://github.com/snoj)

@@ -190,8 +190,8 @@ def get_info(info):
             total, active, inactive, free, cached, buffers, = mem_info()
             pie = ((int(total) - int(free)) - (int(buffers) + int(cached)))
             mem_usage = float(pie) * 100 / float(total)
-            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total)/1048576,
-                                                       pie/1024/1024,
+            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total) / 1048576,
+                                                       pie / 1024 / 1024,
                                                        mem_usage)
 
             return ramdis

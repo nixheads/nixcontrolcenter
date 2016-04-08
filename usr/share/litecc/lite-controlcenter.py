@@ -64,7 +64,7 @@ def functions(view, frame, req, data=None):
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name(appname)
-        about.set_version("1.0-0290")
+        about.set_version(appver)
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -366,6 +366,7 @@ def main():
 
 if __name__ == '__main__':
     appname = 'Linux Lite Control Center'
+    appver = '1.0-0290'
     app_dir = '/usr/share/litecc'
     app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
     fh = 0

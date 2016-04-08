@@ -50,7 +50,7 @@ def functions(view, frame, req, data=None):
     elif lllink == "about":
         '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
-        about.set_program_name("Linux Lite Control Center")
+        about.set_program_name(appname)
         about.set_version("1.0-0280")
         about.set_license('''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
@@ -260,14 +260,23 @@ def which(program):
 
 
 def get_modules(section):
+    window = gtk.Window()
     try:
         mod_dir = os.listdir("{0}/modules/{1}/".format(app_dir, section))
         mod_dir.sort()
-    except Exception as details:
-        os.system(
-            "zenity --error --text 'Error : {0}'" +
-            " --title 'Module Loading Error'".format(details))
-        return exit()
+    except Exception:
+        dialog = gtk.MessageDialog(None, 0, gtk.MessageType.WARNING,
+                                   gtk.ButtonsType.OK,
+                                   'Error Importing Module Data')
+        dialog.set_default_size(400, 250)
+        dialog.format_secondary_text("No modules could be found." +
+                                     " Please reinstall " + appname)
+        dialog.set_transient_for(window)
+        response = dialog.run()
+        if response == gtk.ResponseType.OK:
+            dialog.destroy()
+            sys.exit()
+        dialog.destroy()
 
     if isinstance(mod_dir, list) and len(mod_dir) < 1:
         return "<p>\"no modules found!\"</p>"
@@ -320,7 +329,7 @@ def main():
     frontend = frontend_fill()
     window = gtk.Window()
     window.connect('destroy', gtk.main_quit)
-    window.set_title("Linux Lite Control Center")
+    window.set_title(appname)
     window.set_icon(Pixbuf.new_from_file(app_icon))
     rootsize = tkinter.Tk()
     if rootsize.winfo_screenheight() > 700:
@@ -343,6 +352,7 @@ def main():
     gtk.main()
 
 if __name__ == '__main__':
+    appname = 'Linux Lite Control Center'
     try:
         run_once()
         main()

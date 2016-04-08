@@ -9,6 +9,6 @@ Authors - [Jerry Bezencon,](https://github.com/linuxlite/)
 [Brian Tomlinson,](https://github.com/darthlukan)
 [Josh Erickson](https://github.com/snoj)
 
-An all-in-one control application for [Linux Lite](https://linuxliteos.com).
+An all-in-one control center application for [Linux Lite](https://linuxliteos.com).
 
 ![](http://i.imgur.com/uF8q9ZT.png)

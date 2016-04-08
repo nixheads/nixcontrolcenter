@@ -1,0 +1,8 @@
+*.py.swp
+*.pyc
+*.swp
+dist
+build
+clockr.egg-info
+*.swo
+.cache

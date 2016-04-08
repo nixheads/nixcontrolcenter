@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Display Memory Installed size in MB
-
-totmem=$(free -m | grep Mem: | awk '{ print $2 " MB" }')
-echo $totmem

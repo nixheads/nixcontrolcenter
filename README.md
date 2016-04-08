@@ -1,4 +1,5 @@
-##litecontrolcenter [![Build Status][BS img]][Build Status]
+litecontrolcenter [![Build Status][BS img]][Build Status]
+=================
 [Build Status]: https://travis-ci.org/shaggytwodope/litecontrolcenter
 [BS img]: https://api.travis-ci.org/shaggytwodope/litecontrolcenter.png
 

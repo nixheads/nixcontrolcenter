@@ -20,13 +20,31 @@ app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
 fh = 0
 
 
+def run_once_dialog():
+    window = gtk.Window()
+    dialog = gtk.MessageDialog(None, 0, gtk.MessageType.WARNING,
+                               gtk.ButtonsType.OK,
+                               appname + ' - Error')
+    dialog.set_default_size(400, 250)
+    dialog.set_transient_for(window)
+    dialog.format_secondary_text("There is another instance of " +
+                                 appname + "already running")
+    response = dialog.run()
+
+    if response == gtk.ResponseType.OK:
+        dialog.destroy()
+        sys.exit()
+
+    dialog.destroy()
+
+
 def run_once():
     global fh
     fh = open(os.path.realpath(__file__), 'r')
     try:
         fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except:
-        sys.exit(0)
+        run_once_dialog()
 
 
 def execute(command, ret=True):

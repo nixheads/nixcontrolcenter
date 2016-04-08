@@ -28,7 +28,7 @@ def run_once_dialog():
     dialog.set_default_size(400, 250)
     dialog.set_transient_for(window)
     dialog.format_secondary_text("There is another instance of " +
-                                 appname + "already running")
+                                 appname + " already running")
     response = dialog.run()
 
     if response == gtk.ResponseType.OK:

@@ -42,7 +42,6 @@ def run_once_dialog():
     dialog.destroy()
 
 
-
 def execute(command, ret=True):
     if ret is True:
         p = os.popen(command)

@@ -196,23 +196,19 @@ def get_info(info):
 
             return ramdis
         if info == "gfx":
-            return execute("lspci | grep VGA") \
-                    .split('controller:')[1].split('(rev')[0].split(',')[0]
+            return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
             audio = execute("lspci | grep 'Audio device:'")
             if len(audio) == 0:
-                return execute("lspci | grep audio") \
-                        .split('controller:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
             else:
-                return execute("lspci | grep Audio") \
-                        .split('device:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "disk":
             p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t',
                                    'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t'
                                    'jfs', '-t', 'ntfs', '-t', 'fat32', '-t',
                                    'btrfs', '-t', 'fuseblk', '-t', 'xfs'],
-                                  stdout=subprocess.PIPE) \
-                                          .communicate()[0].decode("Utf-8")
+                                  stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
             total = p1.splitlines()[-1]
             used = total.split()[3].replace(total.split()[3][-1:],
                                             " " + total.split()[3][-1:] + "B")

@@ -15,9 +15,13 @@ from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
 
 
-app_dir = '/usr/share/litecc'
-app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
-fh = 0
+def run_once():
+    global fh
+    fh = open(os.path.realpath(__file__), 'r')
+    try:
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except:
+        run_once_dialog()
 
 
 def run_once_dialog():
@@ -37,14 +41,6 @@ def run_once_dialog():
 
     dialog.destroy()
 
-
-def run_once():
-    global fh
-    fh = open(os.path.realpath(__file__), 'r')
-    try:
-        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    except:
-        run_once_dialog()
 
 
 def execute(command, ret=True):
@@ -371,6 +367,9 @@ def main():
 
 if __name__ == '__main__':
     appname = 'Linux Lite Control Center'
+    app_dir = '/usr/share/litecc'
+    app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
+    fh = 0
     try:
         run_once()
         main()

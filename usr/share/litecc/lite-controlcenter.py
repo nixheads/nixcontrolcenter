@@ -66,7 +66,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA. ''')
         about.set_authors(
             [
-                "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>\n",
+                "Johnathan 'ShaggyTwoDope'" +
+                " Jenkins\n<shaggytwodope@linuxliteos.com>\n",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
                 "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
@@ -156,14 +157,16 @@ def get_info(info):
             try:
                 osin = open('/etc/llver', 'r').read().split('\\n')[0]
             except:
-                osin = execute("lsb_release -d | sed 's/Description:[\t]//g'").split('\\n')[0]
+                infocmd = "lsb_release -d | sed 's/Description:[\t]//g'"
+                osin = execute(infocmd).split('\\n')[0]
             return osin
         if info == "desk":
             desk_ses = os.environ.get("XDG_SESSION_DESKTOP")
             if desk_ses is None:
                 desk_ses = os.environ.get("XDG_CURRENT_DESKTOP")
             if "XFCE" in desk_ses or desk_ses.startswith("xfce"):
-                return execute("xfce4-session -V | grep xfce4-session").split('(')[1].split(')')[0].split(',')[0]
+                xfcev = "xfce4-session -V | grep xfce4-session"
+                return execute(xfcev).split('(')[1].split(')')[0].split(',')[0]
             elif "ubuntu" in desk_ses:
                 return "Unity"
             else:
@@ -193,19 +196,23 @@ def get_info(info):
 
             return ramdis
         if info == "gfx":
-            return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
+            return execute("lspci | grep VGA") \
+                    .split('controller:')[1].split('(rev')[0].split(',')[0]
         if info == "audio":
             audio = execute("lspci | grep 'Audio device:'")
             if len(audio) == 0:
-                return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep audio") \
+                        .split('controller:')[1].split('(rev')[0].split(',')[0]
             else:
-                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep Audio") \
+                        .split('device:')[1].split('(rev')[0].split(',')[0]
         if info == "disk":
             p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t',
                                    'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t'
                                    'jfs', '-t', 'ntfs', '-t', 'fat32', '-t',
                                    'btrfs', '-t', 'fuseblk', '-t', 'xfs'],
-                                  stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
+                                  stdout=subprocess.PIPE) \
+                                          .communicate()[0].decode("Utf-8")
             total = p1.splitlines()[-1]
             used = total.split()[3].replace(total.split()[3][-1:],
                                             " " + total.split()[3][-1:] + "B")
@@ -262,7 +269,8 @@ def get_modules(section):
         mod_dir.sort()
     except Exception as details:
         os.system(
-            "zenity --error --text 'Error : {0}' --title 'Module Loading Error'".format(details))
+            "zenity --error --text 'Error : {0}'" +
+            " --title 'Module Loading Error'".format(details))
         return exit()
 
     if isinstance(mod_dir, list) and len(mod_dir) < 1:

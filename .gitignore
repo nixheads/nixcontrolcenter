@@ -3,6 +3,5 @@
 *.swp
 dist
 build
-clockr.egg-info
 *.swo
 .cache

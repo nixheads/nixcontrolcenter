@@ -155,7 +155,7 @@ function initTabs() {
 			}
 			autoRotate();
 		});
-	}
+	};
 	
 	// add stylesheet for tabs on DOMReady
 	var tabHiddenClass = 'js-tab-hidden';
@@ -220,5 +220,5 @@ function initTabs() {
 				}});
 			}
 		}
-	}
+	};
 }(jQuery));

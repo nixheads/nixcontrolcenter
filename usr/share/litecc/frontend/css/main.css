@@ -291,7 +291,7 @@ form,fieldset{
   .buttons a:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67abd6), color-stop(100%,#4a7fc2)); }
     .buttons li.active a {
-      background:url(../images/button-active.png) no-repeat -113px -2px;
+      background:url(../images/button-active.png) no-repeat -109px -2px;
       margin:0 -21px 0 0;
       padding:0 21px 0 0;
       outline: none;

@@ -59,8 +59,6 @@ def functions(view, frame, req, data=None):
     uri = req.get_uri()
     lllink, path = uri.split('://', 1)
     path = path.replace("%20", " ")
-    print(lllink)
-    print(uri)
     if lllink == "file":
         return False
     elif lllink == "about":

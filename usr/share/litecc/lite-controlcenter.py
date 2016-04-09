@@ -13,6 +13,9 @@ from gi.repository import WebKit as webkit
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
+from os import stat as os_stat
+import datetime
+import apt
 
 
 def run_once():
@@ -164,6 +167,19 @@ def mem_info():
             mem_cached, mem_buffers)
 
 
+def apt_info():
+    cache = apt.Cache()
+    cache.close()
+    cache.open()
+    upgrades = 0
+    cache.upgrade(dist_upgrade=False)
+    changes = cache.get_changes()
+    if changes:
+        counter = [change.name for change in changes]
+        upgrades = (len(counter))
+    return upgrades
+
+
 def get_info(info):
     try:
         if info == "os":
@@ -195,7 +211,23 @@ def get_info(info):
         if info == "kernel":
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "updates":
-            return execute("/usr/share/litecc/scripts/updates")
+            pkgcache = '/var/cache/apt/pkgcache.bin'
+            count = apt_info()
+
+            if os.path.isfile(pkgcache):
+                            mtime = os_stat(pkgcache).st_mtime
+                            modtime = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
+                            modday = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                            today = datetime.datetime.today().strftime('%Y-%m-%d')
+                            if modday == today:
+                                updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>, <font style=\"color: red;\">{1} </font> updates available.<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(modtime, count)
+                            else:
+                                updaters = '''<section class="gradient">Last checked on <font style=\"color: red;\">{0}</font>, <font style=\"color: red;\">{1} </font> updates available.<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(modtime, count)
+            else:
+                updaters = '''<section class="gradient">No Update History<button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''
+
+            return updaters
+
         if info == "processor":
             proc = execute("grep 'model name' /proc/cpuinfo").split(':')[1]
             return proc

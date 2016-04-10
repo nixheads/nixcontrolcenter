@@ -7,8 +7,12 @@ An all-in-one control center application for [Linux Lite](https://linuxliteos.co
 
 ![](http://i.imgur.com/uF8q9ZT.png)
 
+## License
 
-##Authors
+This project is [![License][LS img][https://img.shields.io/badge/license-GPLv2-green.svg]]
+
+
+## Authors
 - [Jerry Bezencon](https://github.com/linuxlite/)
 - [Misko-2083](https://github.com/Misko-2083/)
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope/)

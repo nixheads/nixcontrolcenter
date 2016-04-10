@@ -69,7 +69,6 @@ def functions(view, frame, req, data=None):
     if lllink == "file":
         return False
     elif lllink == "about":
-        '''about dialog, need to add LDC members whom helped'''
         about = gtk.AboutDialog()
         about.set_program_name(appname)
         about.set_version(appver)

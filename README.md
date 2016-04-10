@@ -7,10 +7,9 @@ An all-in-one control center application for [Linux Lite](https://linuxliteos.co
 
 ![](http://i.imgur.com/uF8q9ZT.png)
 
-## License
+## License ![License](https://img.shields.io/badge/license-GPLv2-green.svg)
 
-This project is ![License](https://img.shields.io/badge/license-GPLv2-green.svg)
-
+This project is under the GPLv2 license.
 
 ## Authors
 - [Jerry Bezencon](https://github.com/linuxlite/)

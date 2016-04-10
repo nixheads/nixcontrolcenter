@@ -37,12 +37,11 @@ def run_once():
 def run_once_dialog():
     window = gtk.Window()
     dialog = gtk.MessageDialog(None, 0, gtk.MessageType.WARNING,
-                               gtk.ButtonsType.OK,
-                               appname + ' - Error')
+                               gtk.ButtonsType.OK, appname + ' - Error')
     dialog.set_default_size(400, 250)
     dialog.set_transient_for(window)
-    dialog.format_secondary_text("There is another instance of " +
-                                 appname + " already running.")
+    dialog.format_secondary_text("There is another instance of " + appname +
+                                 " already running.")
     response = dialog.run()
 
     if response == gtk.ResponseType.OK:
@@ -57,7 +56,9 @@ def execute(command, ret=True):
         p = os.popen(command)
         return p.readline()
     else:
-        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
+        p = subprocess.Popen(command,
+                             shell=True,
+                             stdout=subprocess.PIPE,
                              stderr=subprocess.STDOUT)
         return p.stdout
 
@@ -72,7 +73,8 @@ def functions(view, frame, req, data=None):
         about = gtk.AboutDialog()
         about.set_program_name(appname)
         about.set_version(appver)
-        about.set_license('''This program is free software; you can redistribute it and/or modify it
+        about.set_license(
+            '''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
 (at your option) any later version.
@@ -84,16 +86,14 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA. ''')
-        about.set_authors(
-            [
-                "Johnathan 'ShaggyTwoDope'" +
-                " Jenkins\n<shaggytwodope@linuxliteos.com>\n",
-                "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
-                "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
-                "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-                "Josh Erickson\n<josh@snoj.us>"
-            ]
-        )
+        about.set_authors([
+            "Johnathan 'ShaggyTwoDope'" +
+            " Jenkins\n<shaggytwodope@linuxliteos.com>\n",
+            "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
+            "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
+            "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
+            "Josh Erickson\n<josh@snoj.us>"
+        ])
         about.set_comments("Designed for Linux Lite")
         about.set_website("http://www.linuxliteos.com")
         about.set_logo(Pixbuf.new_from_file(app_icon))
@@ -123,11 +123,11 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c',
                           '/usr/share/litecc/scripts/screenshot'])
     elif lllink == "report":
-        subprocess.Popen(['/bin/bash', '-c',
-                          'gksudo /usr/scripts/systemreport'])
+        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'
+                          ])
     elif lllink == "update":
-        subprocess.Popen(['/bin/bash', '-c',
-                          'gksudo /usr/scripts/updates-gui'])
+        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'
+                          ])
     elif lllink == "refresh":
         reload()
 
@@ -167,8 +167,8 @@ def mem_info():
             mem_buffers = (int(line.split()[1]) * 1024.0)
     f.close()
 
-    return (mem_total, mem_active, mem_inactive, mem_free,
-            mem_cached, mem_buffers)
+    return (mem_total, mem_active, mem_inactive, mem_free, mem_cached,
+            mem_buffers)
 
 
 def apt_info():
@@ -220,8 +220,10 @@ def get_info(info):
 
             if os.path.isfile(pkgcache):
                 mtime = os_stat(pkgcache).st_mtime
-                modtime = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
-                modday = datetime.datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                modtime = datetime.datetime.fromtimestamp(mtime).strftime(
+                    '%Y-%m-%d %H:%M')
+                modday = datetime.datetime.fromtimestamp(mtime).strftime(
+                    '%Y-%m-%d')
                 today = datetime.datetime.today().strftime('%Y-%m-%d')
                 if modday == today:
                     updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>, <font style=\"color: red;\">{1} </font> updates available. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
@@ -241,25 +243,28 @@ def get_info(info):
             total, active, inactive, free, cached, buffers, = mem_info()
             pie = ((int(total) - int(free)) - (int(buffers) + int(cached)))
             mem_usage = float(pie) * 100 / float(total)
-            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (int(total) / 1048576,
-                                                       pie / 1024 / 1024,
-                                                       mem_usage)
+            ramdis = "%14dMB (Used: %8dMB %7.2f%%)" % (
+                int(total) / 1048576, pie / 1024 / 1024, mem_usage)
 
             return ramdis
         if info == "gfx":
-            return execute("lspci | grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
+            return execute("lspci | grep VGA").split('controller:')[1].split(
+                '(rev')[0].split(',')[0]
         if info == "audio":
             audio = execute("lspci | grep 'Audio device:'")
             if len(audio) == 0:
-                return execute("lspci | grep audio").split('controller:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep audio").split('controller:')[
+                    1].split('(rev')[0].split(',')[0]
             else:
-                return execute("lspci | grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+                return execute("lspci | grep Audio").split('device:')[1].split(
+                    '(rev')[0].split(',')[0]
         if info == "disk":
-            p1 = subprocess.Popen(['df', '-Tlh', '--total', '-t', 'ext4', '-t',
-                                   'ext3', '-t', 'ext2', '-t', 'reiserfs', '-t'
-                                   'jfs', '-t', 'ntfs', '-t', 'fat32', '-t',
-                                   'btrfs', '-t', 'fuseblk', '-t', 'xfs'],
-                                  stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
+            p1 = subprocess.Popen(
+                ['df', '-Tlh', '--total', '-t', 'ext4', '-t', 'ext3', '-t',
+                 'ext2', '-t', 'reiserfs', '-t'
+                 'jfs', '-t', 'ntfs', '-t', 'fat32', '-t', 'btrfs', '-t',
+                 'fuseblk', '-t', 'xfs'],
+                stdout=subprocess.PIPE).communicate()[0].decode("Utf-8")
             total = p1.splitlines()[-1]
             used = total.split()[3].replace(total.split()[3][-1:],
                                             " " + total.split()[3][-1:] + "B")
@@ -401,6 +406,7 @@ def main():
     settings.set_property('enable-default-context-menu', False)
     browser.set_settings(settings)
     gtk.main()
+
 
 if __name__ == '__main__':
     appname = 'Linux Lite Control Center'

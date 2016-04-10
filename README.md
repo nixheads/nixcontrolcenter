@@ -12,8 +12,8 @@ An all-in-one control center application for [Linux Lite](https://linuxliteos.co
 This project is under the GPLv2 license.
 
 ## Authors
-- [Jerry Bezencon](https://github.com/linuxlite/)
-- [Misko-2083](https://github.com/Misko-2083/)
-- [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope/)
 - [Brian Tomlinson](https://github.com/darthlukan)
+- [Jerry Bezencon](https://github.com/linuxlite/)
+- [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope/)
 - [Josh Erickson](https://github.com/snoj)
+- [Misko-2083](https://github.com/Misko-2083/)

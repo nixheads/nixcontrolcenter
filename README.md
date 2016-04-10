@@ -9,7 +9,7 @@ An all-in-one control center application for [Linux Lite](https://linuxliteos.co
 
 ## License
 
-This project is [![License][LS img][https://img.shields.io/badge/license-GPLv2-green.svg]]
+This project is ![License][LS img][https://img.shields.io/badge/license-GPLv2-green.svg]
 
 
 ## Authors

@@ -220,11 +220,10 @@ def get_info(info):
             if aptcount == 0:
                 count = ''
             elif aptcount == 1:
-                count = ', <font style=\"color: red;\">{0}</font> update available'.format(
+                count = ' (<font style=\"color: red;\">{0}</font> update available)'.format(
                     aptcount)
-
             else:
-                count = ', <font style=\"color: red;\">{0}</font> updates available'.format(
+                count = ' (<font style=\"color: red;\">{0}</font> updates available)'.format(
                     aptcount)
 
             if os.path.isfile(pkgcache):
@@ -235,10 +234,10 @@ def get_info(info):
                     '%Y-%m-%d')
                 today = datetime.datetime.today().strftime('%Y-%m-%d')
                 if modday == today:
-                    updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>{1}. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
+                    updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>{1} <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
                         modtime, count)
                 else:
-                    updaters = '''<section class="gradient">Last checked on <font style=\"color: red;\">{0}</font>{1}. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
+                    updaters = '''<section class="gradient">Last checked on <font style=\"color: red;\">{0}</font>{1} <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
                         modtime, count)
             else:
                 updaters = '''<section class="gradient">No Update History <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''

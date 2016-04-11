@@ -216,7 +216,11 @@ def get_info(info):
             return "{0} {1}".format(os.uname()[0], os.uname()[2])
         if info == "updates":
             pkgcache = '/var/cache/apt/pkgcache.bin'
-            count = apt_info()
+            aptcount = apt_info()
+            if aptcount == 0:
+                count = ''
+            else:
+                count = ', <font style=\"color: red;\">{0}</font> updates available'.format(aptcount)
 
             if os.path.isfile(pkgcache):
                 mtime = os_stat(pkgcache).st_mtime
@@ -226,10 +230,10 @@ def get_info(info):
                     '%Y-%m-%d')
                 today = datetime.datetime.today().strftime('%Y-%m-%d')
                 if modday == today:
-                    updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>, <font style=\"color: red;\">{1} </font> updates available. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
+                    updaters = '''<section class="gradient">Last checked on <font style=\"color: green;\">{0}</font>{1}. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
                         modtime, count)
                 else:
-                    updaters = '''<section class="gradient">Last checked on <font style=\"color: red;\">{0}</font>, <font style=\"color: red;\">{1} </font> updates available. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
+                    updaters = '''<section class="gradient">Last checked on <font style=\"color: red;\">{0}</font>{1}. <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''.format(
                         modtime, count)
             else:
                 updaters = '''<section class="gradient">No Update History <button style=\"padding-bottom:0px;padding-left:50pxi\" onclick=\"location.href=('update://')\">Run Updates</button></section>'''
@@ -410,7 +414,7 @@ def main():
 
 if __name__ == '__main__':
     appname = 'Linux Lite Control Center'
-    appver = '1.0-0300'
+    appver = '1.0-0310'
     app_dir = '/usr/share/litecc'
     app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
     fh = 0

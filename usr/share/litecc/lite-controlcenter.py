@@ -220,7 +220,8 @@ def get_info(info):
             if aptcount == 0:
                 count = ''
             else:
-                count = ', <font style=\"color: red;\">{0}</font> updates available'.format(aptcount)
+                count = ', <font style=\"color: red;\">{0}</font> updates available'.format(
+                    aptcount)
 
             if os.path.isfile(pkgcache):
                 mtime = os_stat(pkgcache).st_mtime

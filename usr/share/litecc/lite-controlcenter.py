@@ -219,7 +219,7 @@ def get_info(info):
             aptcount = apt_info()
             if aptcount == 0:
                 count = ''
-            elif appcount == 1:
+            elif aptcount == 1:
                 count = ', <font style=\"color: red;\">{0}</font> update available'.format(
                     aptcount)
 

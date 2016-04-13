@@ -97,7 +97,7 @@ MA 02110-1301, USA. ''')
             "Josh Erickson\n<josh@snoj.us>"
         ])
         about.set_comments("Designed for Linux Lite")
-        about.set_website("http://www.linuxliteos.com")
+        about.set_website("https://www.linuxliteos.com")
         about.set_logo(Pixbuf.new_from_file(app_icon))
         about.set_transient_for(window)
         about.run()

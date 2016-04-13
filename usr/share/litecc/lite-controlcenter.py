@@ -73,6 +73,8 @@ def functions(view, frame, req, data=None):
         about = gtk.AboutDialog()
         about.set_program_name(appname)
         about.set_version(appver)
+        about.set_copyright('Copyright Linux Lite 2016')
+        about.set_wrap_license
         about.set_license(
             '''This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by

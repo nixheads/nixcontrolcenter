@@ -1,3 +1,6 @@
+Changes for 1.0-0320:
+- Updates to about dialog.
+
 Changes for 1.0-0310:
 (Note changes are since the last release update 1.0-0270)
 - Error dialog if running more then once instance, as well as if no module data is found.

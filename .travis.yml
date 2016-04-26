@@ -6,3 +6,6 @@ install:
   - pip install pytest
   - pip install pytest-pep8
 script: py.test --pep8 .
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

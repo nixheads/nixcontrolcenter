@@ -1,7 +1,9 @@
-Linux Lite Control Center [![Build Status][BS img]][Build Status]
+Linux Lite Control Center [![Build Status][BS img]][Build Status] [![codecov][codecovimg]][codecov]
 =================
 [Build Status]: https://travis-ci.org/shaggytwodope/litecontrolcenter
 [BS img]: https://api.travis-ci.org/shaggytwodope/litecontrolcenter.png
+[codecov]: https://codecov.io/gh/shaggytwodope/litecontrolcenter
+[codecovimg]: https://codecov.io/gh/shaggytwodope/litecontrolcenter/branch/master/graph/badge.svg
 
 An all-in-one control center application for [Linux Lite](https://linuxliteos.com).
 

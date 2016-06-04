@@ -166,7 +166,7 @@ def apt_info():
     cache.close()
     cache.open()
     upgrades = 0
-    cache.upgrade(dist_upgrade=False)
+    cache.upgrade(dist_upgrade=True)
     changes = cache.get_changes()
     if changes:
         counter = [change.name for change in changes]

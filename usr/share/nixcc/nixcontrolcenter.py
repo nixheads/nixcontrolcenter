@@ -121,9 +121,9 @@ MA 02110-1301, USA. ''')
     elif lllink == "linkedin":
         webbrowser.open('http://www.linkedin.com/in/jerrybezencon')
     elif lllink == "screenshot":
-        os.system("/bin/bash -c 'scrot -u $HOME/liteccshot.png'")
+        os.system("/bin/bash -c 'scrot -u $HOME/nixccshot.png'")
         subprocess.Popen(['/bin/bash', '-c',
-                          '/usr/share/litecc/scripts/screenshot'])
+                          '/usr/share/nixcc/scripts/screenshot'])
     elif lllink == "report":
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'
                           ])
@@ -368,7 +368,7 @@ def get_modules(section):
                 command = command.replace("'", ''' \\' ''')
 
                 admin += '''<div class="launcher" onclick="location.href='admin://{0}'" >
-                <img src="{1}" onerror='this.src = "/usr/share/litecc/frontend/icons/modules/notfound.png"'/>
+                <img src="{1}" onerror='this.src = "/usr/share/nixcc/frontend/icons/modules/notfound.png"'/>
                 <h3>{2}</h3>
                 <span>{3}</span>
                 </div>'''.format(command, ico, name, desc)
@@ -419,10 +419,10 @@ def main():
 
 
 if __name__ == '__main__':
-    appname = 'Linux Lite Control Center'
-    appver = '1.0-0310'
-    app_dir = '/usr/share/litecc'
-    app_icon = "/usr/share/pixmaps/lite-controlcenter.png"
+    appname = 'Nix Control Center'
+    appver = '1.0'
+    app_dir = '/usr/share/nixcc'
+    app_icon = "/usr/share/pixmaps/nixcontrolcenter.png"
     fh = 0
     try:
         run_once()

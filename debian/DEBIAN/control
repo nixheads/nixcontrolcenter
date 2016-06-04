@@ -1,0 +1,11 @@
+Source: lite-controlcenter-applet
+Section: xfce
+Priority: optional
+Maintainer: Johnathan Jenkins <twodopeshaggy@gmail.com>
+Homepage: http://github.com/shaggytwodope/litecontrolcenterapplet
+Package: lite-controlcenter-applet
+Version: 1.0
+Architecture: amd64
+Depends: libc6, xfce4-panel, lite-controlcenter
+Description: Linux Lite Control Center applet for Xfce panel
+ This is a simple applet to open a Control Center for Linux Lite.

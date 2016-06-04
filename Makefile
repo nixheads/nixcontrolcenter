@@ -1,13 +1,12 @@
 PREFIX ?= /usr
 TARGET = nixcontrolcenter
-ARCH=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+ARCH= all
 HOSTARCH=$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 VERSION = 1.0
 
 
 deb:
 	sed -i "/Version:/c\Version: $(VERSION)" debian/DEBIAN/control
-	sed -i "/Architecture:/c\Architecture: $(ARCH)" debian/DEBIAN/control
 	install -d debian/usr/bin
 	install -d debian/usr/share/applications
 	install -d debian/usr/share/pixmaps

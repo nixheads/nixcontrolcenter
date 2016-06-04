@@ -1,9 +1,12 @@
-Changes for 1.0-0320:
+Changes for 1.0.1:
+- Removed the row of social media icons.
+- The updater tool is now gpk-update-viewer from gnome-packagekit.
+- Enable dist upgrade when counting updates.
+- Changed resize values.
+
+Changes for 1.0.0:
 - Remove xfce .desktop applet file.
 - Updates to about dialog.
-
-Changes for 1.0-0310:
-(Note changes are since the last release update 1.0-0270)
 - Error dialog if running more then once instance, as well as if no module data is found.
 - Minor code fixes, porting to new version of python.
 - Refactored how memory is calculated, this should be considerably more reliable.

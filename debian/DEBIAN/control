@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Johnathan Jenkins <twodopeshaggy@gmail.com>
 Homepage: http://github.com/nixheads/nixcontrolcenter
 Package: nixcontrolcenter
-Version: 1.0
+Version: 1.0.0
 Architecture: all
 Depends: gir1.2-webkit-3.0, python3-tk, python3-gi
 Description: Nix Control Center

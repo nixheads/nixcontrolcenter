@@ -2,7 +2,7 @@ PREFIX ?= /usr
 TARGET = nixcontrolcenter
 ARCH= all
 HOSTARCH=$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
-VERSION = 1.0
+VERSION = 1.0.0
 
 
 deb:

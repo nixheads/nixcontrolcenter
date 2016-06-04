@@ -7,5 +7,5 @@ Package: nixcontrolcenter
 Version: 1.0
 Architecture: all
 Depends: gir1.2-webkit-3.0, python3-tk, python3-gi
-Description: Linux Lite Control Center applet for Xfce panel
- This is a simple applet to open a Control Center for Linux Lite.
+Description: Nix Control Center
+ A simple Control Center for Linux.

@@ -1,8 +1,9 @@
 Changes for 1.0.1:
-- Removed the row of social media icons.
-- The updater tool is now gpk-update-viewer from gnome-packagekit.
-- Enable dist upgrade when counting updates.
-- Changed resize values.
+- Removed the row of social media icons
+- The updater tool is now gpk-update-viewer from gnome-packagekit
+- Enable dist upgrade when counting updates
+- Changed resize values
+- Imports only require_version from @Misko-2083
 
 Changes for 1.0.0:
 - Remove xfce .desktop applet file.

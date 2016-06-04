@@ -14,10 +14,10 @@ import subprocess
 import fcntl
 import tkinter
 from configparser import ConfigParser
-import gi
-gi.require_version('WebKit', '3.0')
+from gi import require_version
+require_version('WebKit', '3.0')
 from gi.repository import WebKit as webkit
-gi.require_version('Gtk', '3.0')
+require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
 from os import stat as os_stat

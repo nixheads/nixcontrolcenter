@@ -116,7 +116,7 @@ MA 02110-1301, USA. ''')
         subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/systemreport'
                           ])
     elif lllink == "update":
-        subprocess.Popen(['/bin/bash', '-c', 'gksudo /usr/scripts/updates-gui'
+        subprocess.Popen(['update-manager'
                           ])
     elif lllink == "refresh":
         reload()

@@ -13,8 +13,7 @@ These are all subject to change during this time.
 * zenity
 * gksu
 * scrot
-* lite-software
-* lite-upgrad-series2
+* gnome-packagekit
 * gir1.2-webkit-3.0
 * python3-gi
 * ttf-ubuntu-font-family

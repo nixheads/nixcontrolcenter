@@ -73,7 +73,7 @@ def functions(view, frame, req, data=None):
         about = gtk.AboutDialog()
         about.set_program_name(appname)
         about.set_version(appver)
-        about.set_copyright('Copyright Linux Lite 2016')
+        about.set_copyright('Copyright Johnathan Jenkins 2016')
         about.set_wrap_license
         about.set_license(
             '''This program is free software; you can redistribute it and/or modify it
@@ -90,14 +90,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA. ''')
         about.set_authors([
             "Johnathan 'ShaggyTwoDope'" +
-            " Jenkins\n<shaggytwodope@linuxliteos.com>\n",
+            " Jenkins\n<john@nixheads.co.uk>\n",
             "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
             "Milos Pavlovic\n<mpsrbija@gmail.com>\n",
             "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
             "Josh Erickson\n<josh@snoj.us>"
         ])
-        about.set_comments("Designed for Linux Lite")
-        about.set_website("https://www.linuxliteos.com")
+        about.set_comments("Control it all.")
+        about.set_website("https://github.com/nixheads/nixcontrolcenter")
         about.set_logo(Pixbuf.new_from_file(app_icon))
         about.set_transient_for(window)
         about.run()

@@ -5,7 +5,9 @@ python:
 install:
 - pip install pytest
 - pip install pytest-pep8
-script: py.test --pep8 .
+script:
+    - py.test --pep8 .
+    - make
 deploy:
   provider: releases
   api_key:

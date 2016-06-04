@@ -17,4 +17,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: nixheads/nixcontrolcenter
+    repo: shaggytwodope/nixcontrolcenter

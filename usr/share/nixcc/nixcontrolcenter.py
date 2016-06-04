@@ -408,7 +408,7 @@ def main():
 
 if __name__ == '__main__':
     appname = 'Nix Control Center'
-    appver = '1.0.0'
+    appver = '1.0.1'
     app_dir = '/usr/share/nixcc'
     app_icon = "/usr/share/pixmaps/nixcontrolcenter.png"
     fh = 0

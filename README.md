@@ -1,13 +1,9 @@
-Linux Lite Control Center [![Build Status][BS img]][Build Status] [![codecov][codecovimg]][codecov]
+Nix Control Center [![Build Status][BS img]][Build Status]
 =================
-[Build Status]: https://travis-ci.org/shaggytwodope/litecontrolcenter
-[BS img]: https://api.travis-ci.org/shaggytwodope/litecontrolcenter.png
-[codecov]: https://codecov.io/gh/shaggytwodope/litecontrolcenter
-[codecovimg]: https://codecov.io/gh/shaggytwodope/litecontrolcenter/branch/master/graph/badge.svg
+[Build Status]: https://travis-ci.org/shaggytwodope/nixcontrolcenter
+[BS img]: https://api.travis-ci.org/shaggytwodope/nixcontrolcenter.png
 
-An all-in-one control center application for [Linux Lite](https://linuxliteos.com).
-
-![](http://i.imgur.com/uF8q9ZT.png)
+An all-in-one control center application.
 
 ## License ![License](https://img.shields.io/badge/license-GPLv2-green.svg)
 

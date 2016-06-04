@@ -31,7 +31,7 @@ deb:
 	install -m 644 usr/share/pixmaps/nixcontrolcenter.png debian/usr/share/pixmaps/nixcontrolcenter.png
 	install -m 644 usr/share/nixcc/nixcontrolcenter.py  debian/usr/share/nixcc/nixcontrolcenter.py
 	install -m 644 usr/share/nixcc/resources/* debian/usr/share/nixcc/resources
-	install -m 644 usr/share/nixcc/scripts/*  debian/usr/share/nixcc/scripts
+	install -m 755 usr/share/nixcc/scripts/*  debian/usr/share/nixcc/scripts
 	install -m 644 usr/share/nixcc/modules/hardware/*  debian/usr/share/nixcc/modules/hardware
 	install -m 644 usr/share/nixcc/modules/software/*  debian/usr/share/nixcc/modules/software
 	install -m 644 usr/share/nixcc/modules/networking/*  debian/usr/share/nixcc/modules/networking

@@ -388,7 +388,7 @@ def main():
     rootsize = tkinter.Tk()
     if rootsize.winfo_screenheight() > 700:
         window.set_resizable(False)
-        window.set_size_request(800, 500)
+        window.set_size_request(880, 500)
     else:
         window.set_resizable(True)
         window.set_size_request(600, 450)

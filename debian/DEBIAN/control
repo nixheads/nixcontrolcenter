@@ -6,6 +6,6 @@ Homepage: http://github.com/nixheads/nixcontrolcenter
 Package: nixcontrolcenter
 Version: 1.0.0
 Architecture: all
-Depends: gir1.2-webkit-3.0, python3-tk, python3-gi, update-manager
+Depends: gir1.2-webkit-3.0, python3-tk, python3-gi, gnome-packagekit
 Description: Nix Control Center
  A simple Control Center for Linux.

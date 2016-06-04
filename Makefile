@@ -8,11 +8,6 @@ VERSION = 1.0
 deb:
 	sed -i "/Version:/c\Version: $(VERSION)" debian/DEBIAN/control
 	install -d debian/usr/bin
-	install -d debian/usr/share/doc/nixcontrolcenter
-	gzip -c --best debian/DEBIAN/changelog >debian/DEBIAN/changelog.Debian.gz
-	install -m 644  debian/DEBIAN/changelog.Debian.gz debian/usr/share/doc/nixcontrolcenter
-	rm debian/DEBIAN/changelog.Debian.gz
-	install -m 644 debian/DEBIAN/copyright debian/usr/share/doc/nixcontrolcenter
 	install -d debian/usr/share/applications
 	install -d debian/usr/share/pixmaps
 	install -d debian/usr/share/nixcc

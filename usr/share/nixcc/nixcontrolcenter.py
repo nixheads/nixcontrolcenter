@@ -108,18 +108,6 @@ MA 02110-1301, USA. ''')
         execute("{0}/scripts/{1}".format(app_dir, path))
     elif lllink == "help":
         webbrowser.open('file:///usr/share/doc/litemanual/index.html')
-    elif lllink == "forum":
-        webbrowser.open('http://www.linuxliteos.com/forums/')
-    elif lllink == "website":
-        webbrowser.open('http://www.linuxliteos.com/')
-    elif lllink == "facebook":
-        webbrowser.open('https://www.facebook.com/linuxliteos')
-    elif lllink == "twitter":
-        webbrowser.open('http://www.twitter.com/linuxlite/')
-    elif lllink == "google":
-        webbrowser.open('https://plus.google.com/+linuxliteos/')
-    elif lllink == "linkedin":
-        webbrowser.open('http://www.linkedin.com/in/jerrybezencon')
     elif lllink == "screenshot":
         os.system("/bin/bash -c 'scrot -u $HOME/nixccshot.png'")
         subprocess.Popen(['/bin/bash', '-c',

@@ -1,7 +1,7 @@
 Nix Control Center [![Build Status][BS img]][Build Status]
 =================
-[Build Status]: https://travis-ci.org/shaggytwodope/nixcontrolcenter
-[BS img]: https://api.travis-ci.org/shaggytwodope/nixcontrolcenter.png
+[Build Status]: https://travis-ci.org/nixheads/nixcontrolcenter
+[BS img]: https://api.travis-ci.org/nixheads/nixcontrolcenter.png
 
 An all-in-one control center application.
 

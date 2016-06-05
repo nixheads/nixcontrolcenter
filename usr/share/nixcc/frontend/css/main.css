@@ -143,7 +143,7 @@ form,fieldset{
   float: left;
   padding: 18px 1px 0;
   width: 150px;
-  background: url("../images/bg-wrapper.png") repeat-y scroll left center transparent;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#929292), color-stop(100%,#6C6A6A));
   min-height: 522px;
   position: absolute;
   bottom: 0;

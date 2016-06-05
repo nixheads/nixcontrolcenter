@@ -27,7 +27,6 @@ deb:
 	install -d debian/usr/share/nixcc/resources
 	install -m 755 usr/bin/nixcontrolcenter debian/usr/bin
 	install -m 644 usr/share/applications/nixcontrolcenter.desktop debian/usr/share/applications/nixcontrolcenter.desktop
-	install -m 644 usr/share/applications/nixcontrolcenter.desktop debian/usr/share/applications/nixcontrolcenter.desktop
 	install -m 644 usr/share/pixmaps/nixcontrolcenter.png debian/usr/share/pixmaps/nixcontrolcenter.png
 	install -m 644 usr/share/nixcc/nixcontrolcenter.py  debian/usr/share/nixcc/nixcontrolcenter.py
 	install -m 644 usr/share/nixcc/resources/* debian/usr/share/nixcc/resources

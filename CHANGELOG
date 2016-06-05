@@ -1,16 +1,19 @@
+Changes for 1.0.2:
+- Use different command for xfce version fixes live cd for MX-15/Mepis
+
 Changes for 1.0.1:
-- Removed the row of social media icons
+- Removed the row of social media iconsi
 - The updater tool is now gpk-update-viewer from gnome-packagekit
 - Enable dist upgrade when counting updates
 - Changed resize values
 - Imports only require_version from @Misko-2083
 
 Changes for 1.0.0:
-- Remove xfce .desktop applet file.
-- Updates to about dialog.
-- Error dialog if running more then once instance, as well as if no module data is found.
-- Minor code fixes, porting to new version of python.
-- Refactored how memory is calculated, this should be considerably more reliable.
-- General code clean up, if any issues occur please report.
-- Update count and misc scripts are removed, most of the data is now done internally.
-- If count for updates is 0, it does not display any data now.
+- Remove xfce .desktop applet file
+- Updates to about dialog
+- Error dialog if running more then once instance, as well as if no module data is found
+- Minor code fixes, porting to new version of python
+- Refactored how memory is calculated, this should be considerably more reliable
+- General code clean up, if any issues occur please report
+- Update count and misc scripts are removed, most of the data is now done internally
+- If count for updates is 0, it does not display any data now

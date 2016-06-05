@@ -188,7 +188,7 @@ def get_info(info):
             if desk_ses is None:
                 desk_ses = os.environ.get("XDG_CURRENT_DESKTOP")
             if "XFCE" in desk_ses or desk_ses.startswith("xfce"):
-                xfcev = "xfce4-session -V | grep xfce4-session"
+                xfcev = "xfce4-session-settings -V | grep xfce4-session"
                 return execute(xfcev).split('(')[1].split(')')[0].split(',')[0]
             elif "ubuntu" in desk_ses:
                 return "Unity"
